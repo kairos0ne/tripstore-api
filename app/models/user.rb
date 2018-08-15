@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :name,  :presence => true
   validates :email, :uniqueness => true
 
-  has_many :trip
+  has_many :trip, :dependent => :destroy
 
   def self.valid_login?(email, password)
     user = find_by(email: email)
