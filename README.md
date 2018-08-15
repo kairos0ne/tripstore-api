@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This document shows the steps to get the application to run in docker 
 
-Things you may want to cover:
+# Step 1.
 
-* Ruby version
+Clone this application 
 
-* System dependencies
+# Step 2. 
 
-* Configuration
+Change directory to the application root 
 
-* Database creation
+# Step 3.
 
-* Database initialization
+from the root run `docker-compose build`
 
-* How to run the test suite
+# Step 4. 
 
-* Services (job queues, cache servers, search engines, etc.)
+run the following command to create the postgres db  `docker-compose run --rm web bin/rails db:create`
 
-* Deployment instructions
+# Step 5. 
 
-* ...
+run the following command to run migrations on the db `docker-compose run --rm web bin/rails db:migrate`
+
+# Step 6. 
+
+run the following command if you wish to seed the db `docker-compose run --rm web bin/rails db:seed`
+
+# Step 7. 
+
+run the following command to start the application `docker-compose up -d`
