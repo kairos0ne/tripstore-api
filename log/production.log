@@ -1,0 +1,251 @@
+D, [2018-08-15T16:47:33.215156 #1] DEBUG -- :   [1m[35m (213.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+D, [2018-08-15T16:47:33.262663 #1] DEBUG -- :   [1m[35m (22.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2018-08-15T16:47:33.265039 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3973162557627880470);[0m
+D, [2018-08-15T16:47:33.319067 #1] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2018-08-15T16:47:33.380242 #1]  INFO -- : Migrating to CreateUsers (20180223102851)
+D, [2018-08-15T16:47:33.406869 #1] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:47:33.427405 #1] DEBUG -- :   [1m[35m (17.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "token" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2018-08-15T16:47:33.433582 #1] DEBUG -- :   [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180223102851"]]
+D, [2018-08-15T16:47:33.437357 #1] DEBUG -- :   [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+I, [2018-08-15T16:47:33.437923 #1]  INFO -- : Migrating to AddTokenCreatedAtToUsers (20180223124652)
+D, [2018-08-15T16:47:33.450762 #1] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:47:33.452829 #1] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "token_created_at" timestamp[0m
+D, [2018-08-15T16:47:33.460932 #1] DEBUG -- :   [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_token_and_token_created_at" ON "users"  ("token", "token_created_at")[0m
+D, [2018-08-15T16:47:33.463427 #1] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180223124652"]]
+D, [2018-08-15T16:47:33.469847 #1] DEBUG -- :   [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+I, [2018-08-15T16:47:33.470657 #1]  INFO -- : Migrating to CreateTrips (20180814141430)
+D, [2018-08-15T16:47:33.481866 #1] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:47:33.520122 #1] DEBUG -- :   [1m[35m (35.8ms)[0m  [1m[35mCREATE TABLE "trips" ("id" serial primary key, "start_date" timestamp, "end_date" timestamp, "destination" character varying, "departure_airport_code" character varying, "arrival_airport_code" character varying, "departure_time" timestamp, "arrival_time" timestamp, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_6a33c9e4ea"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+D, [2018-08-15T16:47:33.530002 #1] DEBUG -- :   [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_trips_on_user_id" ON "trips"  ("user_id")[0m
+D, [2018-08-15T16:47:33.533200 #1] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180814141430"]]
+D, [2018-08-15T16:47:33.537235 #1] DEBUG -- :   [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-15T16:47:33.541509 #1] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-08-15T16:47:33.549418 #1] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:47:33.554363 #1] DEBUG -- :   [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2018-08-15 16:47:33.550364"], ["updated_at", "2018-08-15 16:47:33.550364"]]
+D, [2018-08-15T16:47:33.558376 #1] DEBUG -- :   [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-15T16:47:33.559816 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3973162557627880470)[0m
+D, [2018-08-15T16:47:48.679778 #1] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2018-08-15T16:47:48.750723 #1] DEBUG -- :   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+D, [2018-08-15T16:47:48.835955 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:47:48.881189 #1] DEBUG -- :   [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bugs@rubyplus.com"], ["LIMIT", 1]]
+D, [2018-08-15T16:47:48.884288 #1] DEBUG -- :   [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bugs"], ["token", "2XPhkpQwYDmiEjtbH7KrajbN"], ["email", "bugs@rubyplus.com"], ["password_digest", "$2a$10$qezRF9miI09iZtKWzmwoVuPamtr0sa3HB3TyXHY77iamVS0T37po."], ["created_at", "2018-08-15 16:47:48.882133"], ["updated_at", "2018-08-15 16:47:48.882133"]]
+D, [2018-08-15T16:47:48.888446 #1] DEBUG -- :   [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-15T16:47:48.969363 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:47:48.971476 #1] DEBUG -- :   [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "daffy@rubyplus.com"], ["LIMIT", 1]]
+D, [2018-08-15T16:47:48.973645 #1] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "daffy"], ["token", "D5T6MneibUgx9Cuw3PsTAKqm"], ["email", "daffy@rubyplus.com"], ["password_digest", "$2a$10$oc3OVcH8K.kbXv2gRnhXCOzyq.1FTVjhWqpMpZB/JcJyOvKJvwghm"], ["created_at", "2018-08-15 16:47:48.972249"], ["updated_at", "2018-08-15 16:47:48.972249"]]
+D, [2018-08-15T16:47:48.977698 #1] DEBUG -- :   [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-15T16:54:44.579844 #1] DEBUG -- :   [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+D, [2018-08-15T16:54:44.619742 #1] DEBUG -- :   [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2018-08-15T16:54:44.622880 #1] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3973162557627880470);[0m
+D, [2018-08-15T16:54:44.646810 #1] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2018-08-15T16:54:44.660146 #1]  INFO -- : Migrating to CreateUsers (20180223102851)
+D, [2018-08-15T16:54:44.677533 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:54:44.689870 #1] DEBUG -- :   [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "token" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2018-08-15T16:54:44.698553 #1] DEBUG -- :   [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180223102851"]]
+D, [2018-08-15T16:54:44.702150 #1] DEBUG -- :   [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+I, [2018-08-15T16:54:44.702839 #1]  INFO -- : Migrating to AddTokenCreatedAtToUsers (20180223124652)
+D, [2018-08-15T16:54:44.715354 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:54:44.717969 #1] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "token_created_at" timestamp[0m
+D, [2018-08-15T16:54:44.726845 #1] DEBUG -- :   [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_token_and_token_created_at" ON "users"  ("token", "token_created_at")[0m
+D, [2018-08-15T16:54:44.729587 #1] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180223124652"]]
+D, [2018-08-15T16:54:44.733076 #1] DEBUG -- :   [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+I, [2018-08-15T16:54:44.733712 #1]  INFO -- : Migrating to CreateTrips (20180814141430)
+D, [2018-08-15T16:54:44.744749 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:54:44.766570 #1] DEBUG -- :   [1m[35m (19.2ms)[0m  [1m[35mCREATE TABLE "trips" ("id" serial primary key, "start_date" timestamp, "end_date" timestamp, "destination" character varying, "departure_airport_code" character varying, "arrival_airport_code" character varying, "departure_time" timestamp, "arrival_time" timestamp, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_6a33c9e4ea"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+D, [2018-08-15T16:54:44.779726 #1] DEBUG -- :   [1m[35m (8.4ms)[0m  [1m[35mCREATE  INDEX  "index_trips_on_user_id" ON "trips"  ("user_id")[0m
+D, [2018-08-15T16:54:44.786471 #1] DEBUG -- :   [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180814141430"]]
+D, [2018-08-15T16:54:44.792113 #1] DEBUG -- :   [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-15T16:54:44.798212 #1] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-08-15T16:54:44.803381 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:54:44.805929 #1] DEBUG -- :   [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2018-08-15 16:54:44.804259"], ["updated_at", "2018-08-15 16:54:44.804259"]]
+D, [2018-08-15T16:54:44.810540 #1] DEBUG -- :   [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-15T16:54:44.812124 #1] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3973162557627880470)[0m
+D, [2018-08-15T16:54:53.370672 #1] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2018-08-15T16:54:53.430873 #1] DEBUG -- :   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+D, [2018-08-15T16:54:53.512852 #1] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:54:53.528522 #1] DEBUG -- :   [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bugs@rubyplus.com"], ["LIMIT", 1]]
+D, [2018-08-15T16:54:53.531394 #1] DEBUG -- :   [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "bugs"], ["token", "pk9wVHgfJKFHNyVsEAtrXFga"], ["email", "bugs@rubyplus.com"], ["password_digest", "$2a$10$zkWr4xC/kem5xbVJygr9Oud2DWsEJULj77y15vKbHRPNHrjSKRR4q"], ["created_at", "2018-08-15 16:54:53.529334"], ["updated_at", "2018-08-15 16:54:53.529334"]]
+D, [2018-08-15T16:54:53.535542 #1] DEBUG -- :   [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-08-15T16:54:53.607094 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2018-08-15T16:54:53.609169 #1] DEBUG -- :   [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "daffy@rubyplus.com"], ["LIMIT", 1]]
+D, [2018-08-15T16:54:53.611302 #1] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "daffy"], ["token", "75YqzjsYJkGJ653NWoRvWF1W"], ["email", "daffy@rubyplus.com"], ["password_digest", "$2a$10$KsbsXWntO4/3Hh5hWBcj1.hCQmTbhYdUpvoKQGeTcZP75r2mYqCF."], ["created_at", "2018-08-15 16:54:53.609896"], ["updated_at", "2018-08-15 16:54:53.609896"]]
+D, [2018-08-15T16:54:53.615204 #1] DEBUG -- :   [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+I, [2018-08-15T17:04:58.157196 #1]  INFO -- : [46392cd5-0c6d-4aff-a941-352839509ae0] Started GET "/" for 172.18.0.1 at 2018-08-15 17:04:58 +0000
+F, [2018-08-15T17:04:58.161422 #1] FATAL -- : [46392cd5-0c6d-4aff-a941-352839509ae0]   
+F, [2018-08-15T17:04:58.162218 #1] FATAL -- : [46392cd5-0c6d-4aff-a941-352839509ae0] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2018-08-15T17:04:58.162926 #1] FATAL -- : [46392cd5-0c6d-4aff-a941-352839509ae0]   
+F, [2018-08-15T17:04:58.163616 #1] FATAL -- : [46392cd5-0c6d-4aff-a941-352839509ae0] actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+[46392cd5-0c6d-4aff-a941-352839509ae0] railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[46392cd5-0c6d-4aff-a941-352839509ae0] activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+[46392cd5-0c6d-4aff-a941-352839509ae0] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+[46392cd5-0c6d-4aff-a941-352839509ae0] railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] rack-cors (1.0.0) lib/rack/cors.rb:93:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] railties (5.0.6) lib/rails/engine.rb:522:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+[46392cd5-0c6d-4aff-a941-352839509ae0] puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+[46392cd5-0c6d-4aff-a941-352839509ae0] puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+[46392cd5-0c6d-4aff-a941-352839509ae0] puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+[46392cd5-0c6d-4aff-a941-352839509ae0] puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-08-15T17:05:06.386289 #1]  INFO -- : [5146cbf5-f088-424f-99dc-6612dd414119] Started GET "/" for 172.18.0.1 at 2018-08-15 17:05:06 +0000
+F, [2018-08-15T17:05:06.388037 #1] FATAL -- : [5146cbf5-f088-424f-99dc-6612dd414119]   
+F, [2018-08-15T17:05:06.388952 #1] FATAL -- : [5146cbf5-f088-424f-99dc-6612dd414119] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2018-08-15T17:05:06.390122 #1] FATAL -- : [5146cbf5-f088-424f-99dc-6612dd414119]   
+F, [2018-08-15T17:05:06.391224 #1] FATAL -- : [5146cbf5-f088-424f-99dc-6612dd414119] actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+[5146cbf5-f088-424f-99dc-6612dd414119] railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+[5146cbf5-f088-424f-99dc-6612dd414119] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[5146cbf5-f088-424f-99dc-6612dd414119] activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+[5146cbf5-f088-424f-99dc-6612dd414119] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+[5146cbf5-f088-424f-99dc-6612dd414119] railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] rack-cors (1.0.0) lib/rack/cors.rb:93:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] railties (5.0.6) lib/rails/engine.rb:522:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+[5146cbf5-f088-424f-99dc-6612dd414119] puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+[5146cbf5-f088-424f-99dc-6612dd414119] puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+[5146cbf5-f088-424f-99dc-6612dd414119] puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+[5146cbf5-f088-424f-99dc-6612dd414119] puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-08-15T17:05:28.612935 #1]  INFO -- : [3ccb2531-587f-4cfe-884c-1af1d41d845f] Started GET "/" for 172.18.0.1 at 2018-08-15 17:05:28 +0000
+F, [2018-08-15T17:05:28.614047 #1] FATAL -- : [3ccb2531-587f-4cfe-884c-1af1d41d845f]   
+F, [2018-08-15T17:05:28.614548 #1] FATAL -- : [3ccb2531-587f-4cfe-884c-1af1d41d845f] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2018-08-15T17:05:28.614978 #1] FATAL -- : [3ccb2531-587f-4cfe-884c-1af1d41d845f]   
+F, [2018-08-15T17:05:28.615395 #1] FATAL -- : [3ccb2531-587f-4cfe-884c-1af1d41d845f] actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] rack-cors (1.0.0) lib/rack/cors.rb:93:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] railties (5.0.6) lib/rails/engine.rb:522:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+[3ccb2531-587f-4cfe-884c-1af1d41d845f] puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-08-15T17:05:30.287118 #1]  INFO -- : [1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] Started GET "/" for 172.18.0.1 at 2018-08-15 17:05:30 +0000
+F, [2018-08-15T17:05:30.289123 #1] FATAL -- : [1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e]   
+F, [2018-08-15T17:05:30.289801 #1] FATAL -- : [1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2018-08-15T17:05:30.290411 #1] FATAL -- : [1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e]   
+F, [2018-08-15T17:05:30.291093 #1] FATAL -- : [1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] rack-cors (1.0.0) lib/rack/cors.rb:93:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] railties (5.0.6) lib/rails/engine.rb:522:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+[1dfb7a0f-ef4d-4121-b0e8-fa73fc1d5a6e] puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-08-15T17:09:46.400683 #1]  INFO -- : [42e49379-dcbb-4b27-b30f-28393d8ab026] Started GET "/" for 172.18.0.1 at 2018-08-15 17:09:46 +0000
+F, [2018-08-15T17:09:46.403668 #1] FATAL -- : [42e49379-dcbb-4b27-b30f-28393d8ab026]   
+F, [2018-08-15T17:09:46.404253 #1] FATAL -- : [42e49379-dcbb-4b27-b30f-28393d8ab026] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2018-08-15T17:09:46.404808 #1] FATAL -- : [42e49379-dcbb-4b27-b30f-28393d8ab026]   
+F, [2018-08-15T17:09:46.405322 #1] FATAL -- : [42e49379-dcbb-4b27-b30f-28393d8ab026] actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] rack-cors (1.0.0) lib/rack/cors.rb:93:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] railties (5.0.6) lib/rails/engine.rb:522:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+[42e49379-dcbb-4b27-b30f-28393d8ab026] puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-08-15T17:10:17.186828 #1]  INFO -- : [a0b537c9-98d6-4021-91ba-b3d7e78df638] Started GET "/api/users" for 172.18.0.1 at 2018-08-15 17:10:17 +0000
+F, [2018-08-15T17:10:17.188114 #1] FATAL -- : [a0b537c9-98d6-4021-91ba-b3d7e78df638]   
+F, [2018-08-15T17:10:17.188722 #1] FATAL -- : [a0b537c9-98d6-4021-91ba-b3d7e78df638] ActionController::RoutingError (No route matches [GET] "/api/users"):
+F, [2018-08-15T17:10:17.189310 #1] FATAL -- : [a0b537c9-98d6-4021-91ba-b3d7e78df638]   
+F, [2018-08-15T17:10:17.189893 #1] FATAL -- : [a0b537c9-98d6-4021-91ba-b3d7e78df638] actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] rack-cors (1.0.0) lib/rack/cors.rb:93:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] railties (5.0.6) lib/rails/engine.rb:522:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+[a0b537c9-98d6-4021-91ba-b3d7e78df638] puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-08-15T17:11:17.484625 #1]  INFO -- : [5f498341-ed2a-41aa-882d-573a92c52ca0] Started GET "/api/v1/users" for 172.18.0.1 at 2018-08-15 17:11:17 +0000
+I, [2018-08-15T17:11:17.489318 #1]  INFO -- : [5f498341-ed2a-41aa-882d-573a92c52ca0] Processing by Api::V1::UsersController#index as HTML
+I, [2018-08-15T17:11:17.504552 #1]  INFO -- : [5f498341-ed2a-41aa-882d-573a92c52ca0] [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+I, [2018-08-15T17:11:17.505749 #1]  INFO -- : [5f498341-ed2a-41aa-882d-573a92c52ca0] Filter chain halted as :require_login rendered or redirected
+I, [2018-08-15T17:11:17.506901 #1]  INFO -- : [5f498341-ed2a-41aa-882d-573a92c52ca0] Completed 401 Unauthorized in 16ms (Views: 14.9ms)
+I, [2018-08-15T17:11:17.943625 #1]  INFO -- : [f9b21ff4-dace-4798-a14f-fff282bd3ff4] Started GET "/favicon.ico" for 172.18.0.1 at 2018-08-15 17:11:17 +0000
+F, [2018-08-15T17:11:17.945467 #1] FATAL -- : [f9b21ff4-dace-4798-a14f-fff282bd3ff4]   
+F, [2018-08-15T17:11:17.946126 #1] FATAL -- : [f9b21ff4-dace-4798-a14f-fff282bd3ff4] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2018-08-15T17:11:17.946732 #1] FATAL -- : [f9b21ff4-dace-4798-a14f-fff282bd3ff4]   
+F, [2018-08-15T17:11:17.947311 #1] FATAL -- : [f9b21ff4-dace-4798-a14f-fff282bd3ff4] actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] rack-cors (1.0.0) lib/rack/cors.rb:93:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] railties (5.0.6) lib/rails/engine.rb:522:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+[f9b21ff4-dace-4798-a14f-fff282bd3ff4] puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
