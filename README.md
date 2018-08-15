@@ -31,7 +31,7 @@ run the following command if you wish to seed the db `docker-compose run --rm we
 
 run the following command to start the application `docker-compose up -d`
 
-# Local Developmet 
+# Local Development 
 
 You'll need the latest rails gem and bundler to run the application locally. 
 
