@@ -4,17 +4,19 @@ class AccessPolicy
   def configure
 
     role :admin, proc { |user| user.admin? } do
-      # permissions will go here
+      # permissions for admin role 
       can [:read, :create, :update, :destroy], User
       
       can [:read, :create, :update, :destroy], Trip
     end
 
     role :member, proc { |user| user.member? } do
-      # permissions will go here
-      can [:read, :create, :update, :destroy], Trip
-      can :create, User
-      
+      # permissions for member role 
+      can [:create, :read], Trip
+      can [:update, :destroy], Trip do |trip,user|
+        trip.user_id == user.id
+      end
+
     end
 
   end

@@ -1,3 +1,4 @@
 tmp/pids/server.pid
 log/development.log
 Gemfile.lock
+log/development.log

@@ -8,13 +8,15 @@ module Api
     # GET /trips
     def index
       user = User.find(params[:user_id])
+      
       @trips = user.trip.all
 
-      render json: @trips
+      render json: @trips, pagination: "{total: }"
     end
 
     # GET /trips/1
     def show
+      authorize! :read, @trip
       render json: @trip
     end
 
@@ -23,6 +25,7 @@ module Api
       @trip = Trip.new(trip_params)
 
       if @trip.save
+        authorize! :create, @trip
         render json: @trip, status: :created
       else
         render json: @trip.errors, status: :unprocessable_entity
@@ -32,6 +35,7 @@ module Api
     # PATCH/PUT /users/1
     def update
       if @trip.update(trip_params)
+        authorize! :update, @trip
         render json: @trip
       else
         render json: @trip.errors, status: :unprocessable_entity
@@ -40,6 +44,7 @@ module Api
 
     # DELETE /trips/1
     def destroy
+      authorize! :destroy, @trip
       @trip.destroy
     end
 
