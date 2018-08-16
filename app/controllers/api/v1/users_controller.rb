@@ -13,9 +13,15 @@ module Api
         
         # GET /user/:id
         def show
-          authorize! :read, @user
+          
+          user = User.find(params[:id])
+          if current_user.id == user.id
+            render json: @user
+          else 
+            authorize! :read, @user
 
-          render json: @user
+            render json: @user
+          end
         end
 
         def index
@@ -25,7 +31,7 @@ module Api
 
           @users = User.all
 
-          render json: @users
+          paginate json: @users
         end
       
         def create
