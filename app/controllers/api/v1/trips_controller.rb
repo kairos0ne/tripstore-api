@@ -19,7 +19,11 @@ module Api
         
       elsif current_user.id == user.id
         @trips = user.trip.all
-        paginate json: @trips
+        paginate json: @trips, meta: {
+          total: @trips.count,
+          per_page: params[:per_page], 
+          page: params[:page] 
+        }
       else 
         render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json
       end

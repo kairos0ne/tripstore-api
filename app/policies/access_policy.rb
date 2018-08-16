@@ -12,7 +12,10 @@ class AccessPolicy
 
     role :member, proc { |user| user.member? } do
       # permissions for member role 
-      can [:create, :read], Trip
+      can :create, Trip
+      can :read, Trip do |trip, user|
+        trip.user_id == user.id
+      end
       can [:update, :destroy], Trip do |trip,user|
         trip.user_id == user.id
       end
