@@ -11,7 +11,11 @@ module Api
       user = User.find(params[:user_id])
       if current_user.admin == true
         @trips = user.trip.all
-        paginate json: @trips
+        paginate json: @trips, meta: {
+          total: @trips.count,
+          per_page: params[:per_page], 
+          page: params[:page] 
+        }
         
       elsif current_user.id == user.id
         @trips = user.trip.all

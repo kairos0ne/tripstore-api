@@ -31,7 +31,11 @@ module Api
 
           @users = User.all
 
-          paginate json: @users
+          paginate json: @users, meta: {
+            total: @users.count,
+            per_page: params[:per_page], 
+            page: params[:page] 
+          }
         end
       
         def create
