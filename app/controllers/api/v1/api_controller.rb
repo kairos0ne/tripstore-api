@@ -8,7 +8,11 @@ module Api
       def current_user
         @current_user ||= authenticate_token
       end
-    
+      
+      rescue_from "AccessGranted::AccessDenied" do |exception|
+        render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json
+      end
+
       protected
     
       def render_unauthorized(message)

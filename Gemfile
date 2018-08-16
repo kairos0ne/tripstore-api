@@ -23,6 +23,7 @@ gem 'bcrypt'
 gem 'pg', '~> 0.18'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+gem 'access-granted', '~> 1.0.0'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'faker'
 gem 'kaminari'

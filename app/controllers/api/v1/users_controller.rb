@@ -13,10 +13,16 @@ module Api
         
         # GET /user/:id
         def show
+          authorize! :read, @user
+
           render json: @user
         end
 
-        def index 
+        def index
+
+          @user = current_user
+          authorize! :read, @user
+
           @users = User.all
 
           render json: @users
@@ -25,6 +31,7 @@ module Api
         def create
           @user = User.new(user_params)
           if @user.save
+            authorize! :create, @user
             render json: @user, :except=>  [:password_digest, :token_created_at]
           else
             render json: @user.errors, status: :unprocessable_entity
@@ -34,6 +41,8 @@ module Api
         # PATCH/PUT /trips/1
         def update
           if @user.update(user_params)
+
+            authorize! :create, @user
             render json: @user, :except=>  [:password_digest, :token_created_at]
           else
             render json: @user.errors, status: :unprocessable_entity
@@ -42,6 +51,7 @@ module Api
 
         # DELETE /trips/1
         def destroy
+          authorize! :destroy, @user
           @user.destroy
         end
       
@@ -53,7 +63,7 @@ module Api
         end
 
         def user_params
-          params.require(:user).permit(:name, :email, :password, :password_confirmation)
+          params.require(:user).permit(:name, :email, :admin, :member, :password, :password_confirmation)
         end
     end
   end

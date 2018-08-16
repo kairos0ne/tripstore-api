@@ -33,9 +33,11 @@ ActiveRecord::Schema.define(version: 20180814141430) do
     t.string   "name"
     t.string   "token"
     t.string   "email"
+    t.boolean  "admin",            default: false
+    t.boolean  "member",           default: true
     t.string   "password_digest"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.datetime "token_created_at"
     t.index ["token", "token_created_at"], name: "index_users_on_token_and_token_created_at", using: :btree
   end
