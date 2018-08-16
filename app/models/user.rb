@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_secure_token
 
-  validates :name,  :presence => true
+  validates :email,  :presence => true
   validates :email, :uniqueness => true
 
   has_many :trip, :dependent => :destroy

@@ -6,13 +6,19 @@ module Api
     before_action :set_trip, only: [:show, :update, :destroy]
 
     # GET /trips
-    def index
+    def index 
 
       user = User.find(params[:user_id])
-
-      @trips = user.trip.all
-      
-      render json: @trips
+      if current_user.admin == true
+        @trips = user.trip.all
+        paginate json: @trips
+        
+      elsif current_user.id == user.id
+        @trips = user.trip.all
+        paginate json: @trips
+      else 
+        render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json
+      end
     end
 
     # GET /trips/1

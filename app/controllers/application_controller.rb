@@ -1,3 +1,3 @@
-class ApplicationController < ActionController::Api
-    
+class ApplicationController < ActionController::Base
+    include Rails::Pagination
 end
