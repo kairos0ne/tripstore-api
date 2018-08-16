@@ -7,11 +7,12 @@ module Api
 
     # GET /trips
     def index
-      user = User.find(params[:user_id])
-      
-      @trips = user.trip.all
 
-      render json: @trips, pagination: "{total: }"
+      user = User.find(params[:user_id])
+
+      @trips = user.trip.all
+      
+      render json: @trips
     end
 
     # GET /trips/1
