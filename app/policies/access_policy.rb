@@ -6,7 +6,6 @@ class AccessPolicy
     role :admin, proc { |user| user.admin? } do
       # permissions for admin role 
       can [:read, :create, :update, :destroy], User
-      
       can [:read, :create, :update, :destroy], Trip
     end
 
