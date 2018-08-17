@@ -65,20 +65,19 @@ run `rails server`to run the server
 
 Available routes 
 
-           Prefix Verb   URI Pattern                                Controller#Action
-api_v1_user_trips GET    /api/v1/users/:user_id/trips(.:format)     api/v1/trips#index
-                  POST   /api/v1/users/:user_id/trips(.:format)     api/v1/trips#create
- api_v1_user_trip GET    /api/v1/users/:user_id/trips/:id(.:format) api/v1/trips#show
-                  PATCH  /api/v1/users/:user_id/trips/:id(.:format) api/v1/trips#update
-                  PUT    /api/v1/users/:user_id/trips/:id(.:format) api/v1/trips#update
-                  DELETE /api/v1/users/:user_id/trips/:id(.:format) api/v1/trips#destroy
-     api_v1_users GET    /api/v1/users(.:format)                    api/v1/users#index
-                  POST   /api/v1/users(.:format)                    api/v1/users#create
-      api_v1_user GET    /api/v1/users/:id(.:format)                api/v1/users#show
-                  PATCH  /api/v1/users/:id(.:format)                api/v1/users#update
-                  PUT    /api/v1/users/:id(.:format)                api/v1/users#update
-                  DELETE /api/v1/users/:id(.:format)                api/v1/users#destroy
-     api_v1_login POST   /api/v1/login(.:format)                    api/v1/sessions#create
-    api_v1_logout DELETE /api/v1/logout(.:format)                   api/v1/sessions#destroy
-
-    
+| Prefix            | Verb   | URI Pattern                                | Controller#Action       |
+|-------------------|--------|--------------------------------------------|-------------------------|
+| api_v1_user_trips | GET    | /api/v1/users/:user_id/trips(.:format)     | api/v1/trips#index      |
+|                   | POST   | /api/v1/users/:user_id/trips(.:format)     | api/v1/trips#create     |
+| api_v1_user_trip  | GET    | /api/v1/users/:user_id/trips/:id(.:format) | api/v1/trips#show       |
+|                   | PATCH  | /api/v1/users/:user_id/trips/:id(.:format) | api/v1/trips#update     |
+|                   | PUT    | /api/v1/users/:user_id/trips/:id(.:format) | api/v1/trips#update     |
+|                   | DELETE | /api/v1/users/:user_id/trips/:id(.:format) | api/v1/trips#destroy    |
+| api_v1_users      | GET    | /api/v1/users(.:format)                    | api/v1/users#index      |
+|                   | POST   | /api/v1/users(.:format)                    | api/v1/users#create     |
+| api_v1_user       | GET    | /api/v1/users/:id(.:format)                | api/v1/users#show       |
+|                   | PATCH  | /api/v1/users/:id(.:format)                | api/v1/users#update     |
+|                   | PUT    | /api/v1/users/:id(.:format)                | api/v1/users#update     |
+|                   | DELETE | /api/v1/users/:id(.:format)                | api/v1/users#destroy    |
+| api_v1_login      | POST   | /api/v1/login(.:format)                    | api/v1/sessions#create  |
+| api_v1_logout     | DELETE | /api/v1/logout(.:format)                   | api/v1/sessions#destroy |
