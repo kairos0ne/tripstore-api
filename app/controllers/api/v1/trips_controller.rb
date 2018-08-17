@@ -16,8 +16,9 @@ module Api
         if params[:page]
           paginate json: @trips, meta: {
             total: @trips.count,
-            per_page: params[:per_page], 
-            page: params[:page] 
+            per_page: params[:per_page].to_i, 
+            page: params[:page].to_i,
+            pages: (@trips.count / params[:per_page].to_i )
           }
         else 
           # Render json response for all trips  
@@ -29,8 +30,9 @@ module Api
         if params[:page]
           paginate json: @trips, meta: {
             total: @trips.count,
-            per_page: params[:per_page], 
-            page: params[:page] 
+            per_page: params[:per_page].to_i, 
+            page: params[:page].to_i,
+            pages: (@trips.count / params[:per_page].to_i)
           }
         else
           render json: @trips
@@ -49,9 +51,9 @@ module Api
     # POST /trips
     def create
       @trip = Trip.new(trip_params)
-
-      if @trip.save
         authorize! :create, @trip
+      if @trip.save
+        
         render json: @trip, status: :created
       else
         render json: @trip.errors, status: :unprocessable_entity
