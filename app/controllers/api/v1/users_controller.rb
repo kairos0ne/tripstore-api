@@ -31,11 +31,17 @@ module Api
 
           @users = User.all
 
-          paginate json: @users, meta: {
-            total: @users.count,
-            per_page: params[:per_page], 
-            page: params[:page] 
-          }
+          if params[:page]
+
+            paginate json: @users, meta: {
+              total: @users.count,
+              per_page: params[:per_page], 
+              page: params[:page] 
+            }
+          else
+            render json: @users
+          end
+
         end
       
         def create

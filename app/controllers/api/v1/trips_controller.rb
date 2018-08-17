@@ -7,23 +7,34 @@ module Api
 
     # GET /trips
     def index 
-
+      # get the user from params 
       user = User.find(params[:user_id])
+      # check if the current user is an admin 
       if current_user.admin == true
         @trips = user.trip.all
-        paginate json: @trips, meta: {
-          total: @trips.count,
-          per_page: params[:per_page], 
-          page: params[:page] 
-        }
-        
+        # Check if the the params contains pagination 
+        if params[:page]
+          paginate json: @trips, meta: {
+            total: @trips.count,
+            per_page: params[:per_page], 
+            page: params[:page] 
+          }
+        else 
+          # Render json response for all trips  
+          render json: @trips
+        end
+       # Check is the user is current user if not render unathorised 
       elsif current_user.id == user.id
         @trips = user.trip.all
-        paginate json: @trips, meta: {
-          total: @trips.count,
-          per_page: params[:per_page], 
-          page: params[:page] 
-        }
+        if params[:page]
+          paginate json: @trips, meta: {
+            total: @trips.count,
+            per_page: params[:per_page], 
+            page: params[:page] 
+          }
+        else
+          render json: @trips
+        end
       else 
         render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json
       end
