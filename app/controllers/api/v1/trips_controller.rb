@@ -18,7 +18,7 @@ module Api
             total: @trips.count,
             per_page: params[:per_page].to_i, 
             page: params[:page].to_i,
-            pages: (@trips.count / params[:per_page].to_i )
+            pages: (@trips.count / params[:per_page].to_f).ceil
           }
         else 
           # Render json response for all trips  
@@ -32,7 +32,7 @@ module Api
             total: @trips.count,
             per_page: params[:per_page].to_i, 
             page: params[:page].to_i,
-            pages: (@trips.count / params[:per_page].to_i)
+            pages: (@trips.count / params[:per_page].to_f).ceil
           }
         else
           render json: @trips
