@@ -19,7 +19,7 @@ class AccessPolicy
         trip.user_id == user.id
       end
       can [:update, :destroy], User do |current_user,user|
-        current_user.id == user.id
+        user.id == current_user.id
       end
 
     end

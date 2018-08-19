@@ -60,10 +60,10 @@ module Api
       end
     end
 
-    # PATCH/PUT /users/1
+    # PATCH/PUT /trips/1
     def update
+      authorize! :update, @trip
       if @trip.update(trip_params)
-        authorize! :update, @trip
         render json: @trip
       else
         render json: @trip.errors, status: :unprocessable_entity

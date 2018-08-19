@@ -55,18 +55,18 @@ module Api
           end
         end
 
-        # PATCH/PUT /trips/1
+        # PATCH/PUT /users/1
         def update
-          
           authorize! :update, @user
           if @user.update(user_params)
+            
             render json: @user, :except=>  [:password_digest, :token_created_at]
           else
             render json: @user.errors, status: :unprocessable_entity
           end
         end
 
-        # DELETE /trips/1
+        # DELETE /users/1
         def destroy
           authorize! :destroy, @user
           @user.destroy
