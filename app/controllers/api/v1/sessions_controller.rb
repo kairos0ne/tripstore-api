@@ -1,7 +1,7 @@
 module Api
   module V1
     class SessionsController < ApiController
-      skip_before_action :require_login, only: [:create], raise: false
+      before_action :require_login, only: [:destroy]
 
       def create
         if user = User.valid_login?(params[:email], params[:password])
@@ -13,7 +13,8 @@ module Api
       end
 
       def destroy
-        current_user.logout
+        current_user.token_created_at = nil
+        current_user.save
         head :ok
       end
 
