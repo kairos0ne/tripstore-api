@@ -57,9 +57,9 @@ module Api
 
         # PATCH/PUT /trips/1
         def update
+          
+          authorize! :update, @user
           if @user.update(user_params)
-
-            authorize! :create, @user
             render json: @user, :except=>  [:password_digest, :token_created_at]
           else
             render json: @user.errors, status: :unprocessable_entity
