@@ -4,7 +4,4 @@ Gemfile.lock
 log/development.log
 log/development.log
 tmp/*
-<<<<<<< HEAD
-=======
-tmp/cache/*
->>>>>>> upgrade-rails
+
