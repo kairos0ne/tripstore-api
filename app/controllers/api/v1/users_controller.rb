@@ -66,16 +66,6 @@ module Api
           end
         end
 
-        def newadmin
-          @user = User.new(admin_params)
-          if @user.save
-            
-            render json: @user, :except=>  [:password_digest, :token_created_at]
-          else
-            render json: @user.errors, status: :unprocessable_entity
-          end
-        end
-
         # DELETE /users/1
         def destroy
           authorize! :destroy, @user
@@ -93,9 +83,6 @@ module Api
           params.require(:user).permit(:name, :email, :password, :password_confirmation)
         end
 
-        def admin_params
-          params.require(:user).permit(:name, :email, :admin, :member, :password, :password_confirmation)
-        end
     end
   end
 end
