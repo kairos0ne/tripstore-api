@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.1'
 
 gem 'grape', '>= 0.10.0'
 # Use sqlite3 as the database for Active Record
@@ -20,6 +20,7 @@ gem 'puma', '~> 3.0'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
+gem 'bootsnap', '>= 1.1.0', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'pg', '~> 0.18'
