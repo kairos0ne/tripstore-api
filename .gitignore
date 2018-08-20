@@ -4,3 +4,4 @@ Gemfile.lock
 log/development.log
 log/development.log
 tmp/*
+tmp/cache/*
