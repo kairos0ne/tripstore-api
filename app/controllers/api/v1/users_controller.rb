@@ -4,7 +4,7 @@ module Api
     class UsersController < ApiController
       
       before_action :set_user, only: [:show, :update, :destroy]
-      before_action :require_login, only: [:show, :index, :update, :destroy]
+      before_action :require_login, only: [:show, :index, :update, :create_admin, :destroy]
       
         def new
           @user = User.new
@@ -66,6 +66,16 @@ module Api
           end
         end
 
+        def newadmin
+          @user = User.new(admin_params)
+          if @user.save
+            
+            render json: @user, :except=>  [:password_digest, :token_created_at]
+          else
+            render json: @user.errors, status: :unprocessable_entity
+          end
+        end
+
         # DELETE /users/1
         def destroy
           authorize! :destroy, @user
@@ -80,6 +90,10 @@ module Api
         end
 
         def user_params
+          params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        end
+
+        def admin_params
           params.require(:user).permit(:name, :email, :admin, :member, :password, :password_confirmation)
         end
     end
