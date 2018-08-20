@@ -79,5 +79,6 @@ Available routes - full API docs can be found here: https://documenter.getpostma
 |                   | PATCH  | /api/v1/users/:id(.:format)                | api/v1/users#update     |
 |                   | PUT    | /api/v1/users/:id(.:format)                | api/v1/users#update     |
 |                   | DELETE | /api/v1/users/:id(.:format)                | api/v1/users#destroy    |
+| api_v1_moderator  | POST   | /api/v1/moderator(.:format)                | api/v1/moderators#create|
 | api_v1_login      | POST   | /api/v1/login(.:format)                    | api/v1/sessions#create  |
 | api_v1_logout     | DELETE | /api/v1/logout(.:format)                   | api/v1/sessions#destroy |
