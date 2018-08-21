@@ -85,4 +85,4 @@ production:
   database: hotels_production
   host: localhost
   username: rails
-  password: <%= ENV['RAIL_RAIL_POSTGRESS_PASS'] %>
+  password: 0cf4410bb8ecab7a238a421891ca8d22
