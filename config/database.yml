@@ -83,6 +83,6 @@ test:
 production:
   <<: *default
   database: hotels_production
-  host: 178.128.33.185
+  host: localhost
   username: rails
   password: 4ed614c1cbe5eb428dfb315d0a634543
