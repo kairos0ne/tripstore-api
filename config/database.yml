@@ -34,7 +34,7 @@ development:
   username: rails
 
   # The password associated with the postgres role (username).
-  password: 
+  password: 4ed614c1cbe5eb428dfb315d0a634543
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
