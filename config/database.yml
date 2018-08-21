@@ -85,4 +85,4 @@ production:
   database: hotels_production
   host: db
   username: rails
-  password: 
+  password: 4ed614c1cbe5eb428dfb315d0a634543
