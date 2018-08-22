@@ -21,7 +21,7 @@ module Api
       private
 
       def send_auth_token_for_valid_login_of(user)
-        render json: { user: user }, :except=>  [:password_digest, :token_created_at, :admin, :member]
+        render json: { user: user }, :except=>  [:password_digest, :token_created_at]
       end
     end
   end 
