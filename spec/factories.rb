@@ -1,5 +1,6 @@
 # This will guess the User class
 FactoryBot.define do
+  
     factory :user do
       name { "John" }
       email  { Faker::Internet.email }
@@ -7,15 +8,6 @@ FactoryBot.define do
       password_confirmation { "123456" }
       admin { true }
     end
-  
-    # This will use the User class (Admin would have been guessed)
-    factory :admin do
-        name { "Stan" }
-        email  { "admin@test.com" }
-        password { "123456" }
-        password_confirmation { "123456" }
-        admin { true }
-      end
 
     # Create Trip with user ID of 1 
     factory :trip do 
