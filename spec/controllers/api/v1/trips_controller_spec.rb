@@ -29,7 +29,7 @@ RSpec.describe Api::V1::TripsController do
     end
 
   end
-  
+
   # Test that the user is returned on the show method 
   describe "GET #show" do
 
@@ -50,4 +50,28 @@ RSpec.describe Api::V1::TripsController do
     end
 
   end
+
+  # Create a Trip in the db 
+  describe "Trip #create" do
+
+    it 'creates a new Trip' do
+      expect {
+        user = FactoryBot.create(:user)
+        trip = FactoryBot.create(:trip, user_id: user.id)
+        trip.save
+      }.to change(Trip, :count).by(1)
+    end
+
+  end
+  # Delet a Trip 
+  describe "Trip #destroy" do
+
+    it 'Delets a Trip' do
+      user = FactoryBot.create(:user)
+      trip = FactoryBot.create(:trip, user_id: user.id)
+      expect { trip.destroy }.to change(Trip, :count).by(-1)
+    end
+
+  end
+
 end

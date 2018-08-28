@@ -42,4 +42,25 @@ RSpec.describe Api::V1::UsersController do
       end
   
     end
+    # Create a user in the db 
+    describe "User #create" do
+
+      it 'creates a new User' do
+        expect { 
+          user = FactoryBot.create(:user)
+          user.save 
+        }.to change(User, :count).by(1)
+      end
+  
+    end
+    # Delet a user 
+    describe "User #destroy" do
+
+      it 'Delets a user' do
+        user = FactoryBot.create(:user)
+        user.save
+        expect { user.destroy }.to change(User, :count).by(-1)
+      end
+  
+    end
 end
