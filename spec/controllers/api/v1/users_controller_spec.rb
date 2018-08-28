@@ -36,7 +36,7 @@ RSpec.describe Api::V1::UsersController do
         expect(response).to have_http_status(:success)
       end
   
-      it "JSON body response contains expected trips attributes" do
+      it "JSON body response contains expected user attributes" do
         json_response = JSON.parse(response.body)
         expect(json_response.keys).to match_array("user")
       end
@@ -53,10 +53,10 @@ RSpec.describe Api::V1::UsersController do
       end
   
     end
-    # Delet a user 
+    # Delete a user 
     describe "User #destroy" do
 
-      it 'Delets a user' do
+      it 'Deletes a user' do
         user = FactoryBot.create(:user)
         user.save
         expect { user.destroy }.to change(User, :count).by(-1)
