@@ -12,7 +12,7 @@ module Api
       end
       
       rescue_from "AccessGranted::AccessDenied" do |exception|
-        render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json
+        render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json, :status => :forbidden
       end
 
       protected

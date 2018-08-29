@@ -38,7 +38,7 @@ module Api
           render json: @trips
         end
       else 
-        render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json
+        render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json, :status => :forbidden
       end
     end
 

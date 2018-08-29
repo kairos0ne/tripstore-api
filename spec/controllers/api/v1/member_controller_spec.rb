@@ -16,7 +16,7 @@ RSpec.describe Api::V1::UsersController do
       get :index
     end
     it "returns http 200" do
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(:forbidden)
     end
     it "JSON body response contains expected user attributes" do
       json_response = JSON.parse(response.body)
@@ -54,12 +54,23 @@ RSpec.describe Api::V1::UsersController do
     end
 
     it "returns http success" do
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:forbidden)
     end
 
     it "JSON body response contains error" do
       json_response = JSON.parse(response.body)
       expect(json_response.keys).to match_array("error")
+    end
+
+  end
+
+  # Delete a user 
+  describe "User #destroy" do
+
+    it 'Gives an error for delete when its not users own data' do
+      user = FactoryBot.create(:user)
+      user.save
+      expect { user.destroy }.to change(User, :count).by(-1)
     end
 
   end
