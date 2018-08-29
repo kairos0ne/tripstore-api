@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::UsersController do
 
   before(:each) do
-      user = create(:user, token_created_at: Time.zone.now.to_datetime)
+      user = FactoryBot.create(:user, token_created_at: Time.zone.now.to_datetime)
       user.save
       request.headers["Authorization"] = "Token " + user.token
   end  

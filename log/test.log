@@ -17302,3 +17302,425 @@ Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 1.9ms)
   [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL AND "users"."id" != $1 LIMIT $2[0m  [["id", 1548], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (10.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (14.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chaneltoy@pagachilll.net"], ["LIMIT", 1]]
+  [1m[36mUser Create (14.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "admin", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Theo"], ["token", "RXspiqCCGC4e55UPMRzSH61Y"], ["email", "chaneltoy@pagachilll.net"], ["admin", true], ["password_digest", "$2a$04$vKZNHtBzS/c8PsB8a62aX.rADVV5ePtfsaCBYDtAQc.oQyt2wdWZK"], ["created_at", "2018-08-29 13:09:31.364152"], ["updated_at", "2018-08-29 13:09:31.364152"], ["token_created_at", "2018-08-29 13:09:30.542534"]]
+  [1m[35m (2.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "chaneltoy@pagachilll.net"], ["id", 1549], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.404302') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "RXspiqCCGC4e55UPMRzSH61Y"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.418290') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "RXspiqCCGC4e55UPMRzSH61Y"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (7.07ms)
+Completed 200 OK in 63ms (Views: 41.2ms | ActiveRecord: 3.8ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "evita@hirthe.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "admin", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Carrol"], ["token", "sVruJEbBjJKQgC8odMhqmZkx"], ["email", "evita@hirthe.org"], ["admin", true], ["password_digest", "$2a$04$YZrLGFEZlcW48XZPNZn4POoLV0wgdAXDScbcrCcn0mXlP/X1O7Auq"], ["created_at", "2018-08-29 13:09:31.479834"], ["updated_at", "2018-08-29 13:09:31.479834"], ["token_created_at", "2018-08-29 13:09:31.473114"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "evita@hirthe.org"], ["id", 1550], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.485527') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "sVruJEbBjJKQgC8odMhqmZkx"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.487417') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "sVruJEbBjJKQgC8odMhqmZkx"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.41ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "esteban@buckridge.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "admin", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Spencer"], ["token", "d16wBJLFof8KXe87TTwbHkYa"], ["email", "esteban@buckridge.com"], ["admin", true], ["password_digest", "$2a$04$qJo3mgxtNmmnlDxnxar8Ie1RD4ZaYwGQVnmogLMcwgtlBi33e5KqG"], ["created_at", "2018-08-29 13:09:31.500466"], ["updated_at", "2018-08-29 13:09:31.500466"], ["token_created_at", "2018-08-29 13:09:31.495117"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "esteban@buckridge.com"], ["id", 1551], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "minda@kreiger.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "admin", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Man"], ["token", "yukZJj3qaiC8TUd6dN4yGXjE"], ["email", "minda@kreiger.co"], ["admin", true], ["password_digest", "$2a$04$crWJprov7YvEzmSwftdvVeUzDPKJD5OtK.XOZQw4rOiPNjnpkHgNm"], ["created_at", "2018-08-29 13:09:31.508394"], ["updated_at", "2018-08-29 13:09:31.508394"], ["token_created_at", "2018-08-29 13:09:31.504555"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1552"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1552], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.515716') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "yukZJj3qaiC8TUd6dN4yGXjE"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1552], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.519490') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "yukZJj3qaiC8TUd6dN4yGXjE"], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (0.41ms)
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 3.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "keniaziemann@reynoldscremin.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "admin", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Ben"], ["token", "io6YY4GgnRo5q1mSa7vJX1ik"], ["email", "keniaziemann@reynoldscremin.co"], ["admin", true], ["password_digest", "$2a$04$3PDTzHAj7WE4pIuAdfWJ9O.LHBvvAadAnH9t3g7DbtjbOh6LACsdy"], ["created_at", "2018-08-29 13:09:31.530084"], ["updated_at", "2018-08-29 13:09:31.530084"], ["token_created_at", "2018-08-29 13:09:31.525451"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "keniaziemann@reynoldscremin.co"], ["id", 1553], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "morton@kuhlman.info"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "admin", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Erik"], ["token", "3fK7yzyAagAFJqCSqqQnb5mP"], ["email", "morton@kuhlman.info"], ["admin", true], ["password_digest", "$2a$04$Lege2SLqY8s.1MTjtcQyYe/Nq8CngkACFLU8l8L.ZrTHZ.Mid1IxS"], ["created_at", "2018-08-29 13:09:31.538299"], ["updated_at", "2018-08-29 13:09:31.538299"], ["token_created_at", "2018-08-29 13:09:31.534492"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1554"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1554], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.542267') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "3fK7yzyAagAFJqCSqqQnb5mP"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1554], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.545001') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "3fK7yzyAagAFJqCSqqQnb5mP"], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (1.35ms)
+Completed 200 OK in 8ms (Views: 2.2ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "judson@quitzon.io"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "admin", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johanne"], ["token", "3mqdE6RwhaBnkiyVXAR14h6x"], ["email", "judson@quitzon.io"], ["admin", true], ["password_digest", "$2a$04$tLnOXK9f4i8qAKil2G.QLeTtyYXHkYpC4k3JYYI7Q5jHksANBG13m"], ["created_at", "2018-08-29 13:09:31.555289"], ["updated_at", "2018-08-29 13:09:31.555289"], ["token_created_at", "2018-08-29 13:09:31.551232"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "judson@quitzon.io"], ["id", 1555], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "pasqualeschultz@hodkiewicz.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Syble"], ["token", "rAL918qv6Eu6HysSoXs1DT8U"], ["email", "pasqualeschultz@hodkiewicz.biz"], ["password_digest", "$2a$04$uNVg3edpyG59M.5rHq3TF.LCONqtF38tJ3I6Hq24.cH1U6M4e9ria"], ["created_at", "2018-08-29 13:09:31.572535"], ["updated_at", "2018-08-29 13:09:31.572535"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "pasqualeschultz@hodkiewicz.biz"], ["id", 1556], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "eufemia@greenholt.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "admin", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Epifania"], ["token", "NUCMCfs92KSo3s7vmJYYz7oo"], ["email", "eufemia@greenholt.name"], ["admin", true], ["password_digest", "$2a$04$MkI5y9ah8tOZve5BtbYf5ueeJUs3YnpYUyI5vAexaUwn/7yjx6nd."], ["created_at", "2018-08-29 13:09:31.583734"], ["updated_at", "2018-08-29 13:09:31.583734"], ["token_created_at", "2018-08-29 13:09:31.579362"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "eufemia@greenholt.name"], ["id", 1557], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "michal@jacobs.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Francisco"], ["token", "BNjtyj6XMtLReWuxqf4CezF7"], ["email", "michal@jacobs.org"], ["password_digest", "$2a$04$3DJ6sfaknA4Y9eDlbh7O/.BhnYKhdT5KJS.V5aWM0ayTtackv55xm"], ["created_at", "2018-08-29 13:09:31.591609"], ["updated_at", "2018-08-29 13:09:31.591609"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "michal@jacobs.org"], ["id", 1558], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTrip Load (1.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = $1[0m  [["user_id", 1558]]
+  [1m[36mUser Destroy (12.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1558]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "violagreenfelder@wunsch.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Amos"], ["token", "3sn9K1qxxB3XcHTNSSz5Xb5h"], ["email", "violagreenfelder@wunsch.biz"], ["password_digest", "$2a$04$GDrM8f//K/1tlqKIWvVwuuwo913KkV0kLRaRgG9olnuLwevvcXi0O"], ["created_at", "2018-08-29 13:09:31.659245"], ["updated_at", "2018-08-29 13:09:31.659245"], ["token_created_at", "2018-08-29 13:09:31.651911"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "violagreenfelder@wunsch.biz"], ["id", 1559], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.665403') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "3sn9K1qxxB3XcHTNSSz5Xb5h"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.667200') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "3sn9K1qxxB3XcHTNSSz5Xb5h"], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 7.5ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank@bartoletti.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Alonzo"], ["token", "on6y5hFfTkr9vv8KJiyHhJk2"], ["email", "frank@bartoletti.name"], ["password_digest", "$2a$04$loIUX1EH6Di08PYE3K.arOEymsaz9EQPA3HEQ7vgwwb3zi/SaU0Oq"], ["created_at", "2018-08-29 13:09:31.685436"], ["updated_at", "2018-08-29 13:09:31.685436"], ["token_created_at", "2018-08-29 13:09:31.679631"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "frank@bartoletti.name"], ["id", 1560], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.690448') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "on6y5hFfTkr9vv8KJiyHhJk2"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.692236') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "on6y5hFfTkr9vv8KJiyHhJk2"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "maynardconn@skilesjones.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "April"], ["token", "9odn8JP7x4VQpteNQpJn2375"], ["email", "maynardconn@skilesjones.com"], ["password_digest", "$2a$04$jasnn0Huw/bZZMVOmZALd.75SuL6cdAESU/h89y/OpGvhjtKQx/bO"], ["created_at", "2018-08-29 13:09:31.700973"], ["updated_at", "2018-08-29 13:09:31.700973"], ["token_created_at", "2018-08-29 13:09:31.696838"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "maynardconn@skilesjones.com"], ["id", 1561], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mae@konopelski.net"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Jerry"], ["token", "uCQGwy1xaToSGv5CvKtvyhvX"], ["email", "mae@konopelski.net"], ["password_digest", "$2a$04$Hw5Nt/HrT1dOUr3R6JsexuIembz1Jh2eIWSgEhAiJqs6JvNhnOuQe"], ["created_at", "2018-08-29 13:09:31.708897"], ["updated_at", "2018-08-29 13:09:31.708897"], ["token_created_at", "2018-08-29 13:09:31.704977"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1562"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1562], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.712871') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "uCQGwy1xaToSGv5CvKtvyhvX"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1562], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.715562') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "uCQGwy1xaToSGv5CvKtvyhvX"], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (0.24ms)
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "graigluettgen@harvey.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Murray"], ["token", "7yctjPK38KbeqyT7bSJorRph"], ["email", "graigluettgen@harvey.biz"], ["password_digest", "$2a$04$Jof1E33xYxODHYzuHzjus.K9rBCcF3jjHFo1P6DHqvW/22uQPpooG"], ["created_at", "2018-08-29 13:09:31.724324"], ["updated_at", "2018-08-29 13:09:31.724324"], ["token_created_at", "2018-08-29 13:09:31.720313"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "graigluettgen@harvey.biz"], ["id", 1563], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "francoise@bailey.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Bambi"], ["token", "C45babj7AVnbKTSQS2MYY1og"], ["email", "francoise@bailey.org"], ["password_digest", "$2a$04$futUZu9Dr9i4Q4QnJf2dY.X.LzEpfD816bO.a.ouGqve1zcf1Nmmu"], ["created_at", "2018-08-29 13:09:31.734080"], ["updated_at", "2018-08-29 13:09:31.734080"], ["token_created_at", "2018-08-29 13:09:31.729009"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1564"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1564], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.737993') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "C45babj7AVnbKTSQS2MYY1og"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1564], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.740729') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "C45babj7AVnbKTSQS2MYY1og"], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (0.28ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 2.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "debrahbaumbach@von.net"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Fausto"], ["token", "wfSYQMKiWitHz2r1EzgzPpc1"], ["email", "debrahbaumbach@von.net"], ["password_digest", "$2a$04$d.PxdIHGc7LIW94klHLZ0.xJD612onm2wGGwjc./LgwYV.TcBUjUm"], ["created_at", "2018-08-29 13:09:31.749837"], ["updated_at", "2018-08-29 13:09:31.749837"], ["token_created_at", "2018-08-29 13:09:31.745472"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "debrahbaumbach@von.net"], ["id", 1565], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sidney@zboncakjohns.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Cathryn"], ["token", "ED1jUxFkBZL7sQLNHZaZoAjR"], ["email", "sidney@zboncakjohns.com"], ["password_digest", "$2a$04$rJJYEoJ96amYUCm3xKIFUOy7dOen33s6/GJvCbvfSd.cc1vxmv5Oi"], ["created_at", "2018-08-29 13:09:31.758007"], ["updated_at", "2018-08-29 13:09:31.758007"], ["token_created_at", "2018-08-29 13:09:31.753912"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rema@blockstoltenberg.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Zane"], ["token", "fJmuAAqJsAshtKZmeq91jmGR"], ["email", "rema@blockstoltenberg.name"], ["password_digest", "$2a$04$FTeNqLKdWY9AqIs9P8G8UuoqIJ2gqtmCc.6siQ.RfRxjpY6HuYDAi"], ["created_at", "2018-08-29 13:09:31.763671"], ["updated_at", "2018-08-29 13:09:31.763671"], ["token_created_at", "2018-08-29 13:09:31.759828"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1566"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1566], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.767917') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "fJmuAAqJsAshtKZmeq91jmGR"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1566], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.770532') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "fJmuAAqJsAshtKZmeq91jmGR"], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "damionconsidine@dibbert.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Winona"], ["token", "gi7vvDeUfAHpKaS4TCjeWdb9"], ["email", "damionconsidine@dibbert.org"], ["password_digest", "$2a$04$nt93Sbu046jWsLOt57QNCOCvm.EUTRZXf8JtK.uXCW2aeEUYCNhie"], ["created_at", "2018-08-29 13:09:31.778989"], ["updated_at", "2018-08-29 13:09:31.778989"], ["token_created_at", "2018-08-29 13:09:31.774789"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "damionconsidine@dibbert.org"], ["id", 1568], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "abbiemccullough@shields.io"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Kip"], ["token", "TJnCpMsmAkd9ZwQDacff56RW"], ["email", "abbiemccullough@shields.io"], ["password_digest", "$2a$04$McaRivfYRR.crIZnziWFNuAt5CcueqN358xZBOItmbGfIWe35MvGS"], ["created_at", "2018-08-29 13:09:31.788689"], ["updated_at", "2018-08-29 13:09:31.788689"], ["token_created_at", "2018-08-29 13:09:31.784855"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cordell@champlinbechtelar.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Alta"], ["token", "WiYgmhWsAVYozXBxaJyVaBpM"], ["email", "cordell@champlinbechtelar.biz"], ["password_digest", "$2a$04$GQ1xqrBuBUVik3Vamwjsme9x//JG.DBAHgOK2hsvwQKVWNgs657AK"], ["created_at", "2018-08-29 13:09:31.794452"], ["updated_at", "2018-08-29 13:09:31.794452"], ["token_created_at", "2018-08-29 13:09:31.790450"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1569"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1569], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.798548') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "WiYgmhWsAVYozXBxaJyVaBpM"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1569], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.801189') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "WiYgmhWsAVYozXBxaJyVaBpM"], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hunterkeeling@keebler.net"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Luetta"], ["token", "YudyXZG1uhcEf9KYvaBabhPa"], ["email", "hunterkeeling@keebler.net"], ["password_digest", "$2a$04$gUVVUI4K0aoW/Upo4dw5zO1pAJu2RNCcktQZ8Dn9RhR8v62XQqsdC"], ["created_at", "2018-08-29 13:09:31.809640"], ["updated_at", "2018-08-29 13:09:31.809640"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1571], ["LIMIT", 1]]
+  [1m[36mTrip Create (3.5ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.824475"], ["end_date", "2018-08-29 13:09:31.824551"], ["destination", "Thompsonchester"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.824800"], ["arrival_time", "2018-08-29 13:09:31.824830"], ["user_id", 1571], ["created_at", "2018-08-29 13:09:31.837987"], ["updated_at", "2018-08-29 13:09:31.837987"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vivan@murphyvon.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Laticia"], ["token", "63LMsEN8LSbuGtswyuNhFCwR"], ["email", "vivan@murphyvon.biz"], ["password_digest", "$2a$04$8sQbXWi.WUSD0yXSwzrU5u0G6YUmuUea4h6EfJDrqaSMmpqdFT0E2"], ["created_at", "2018-08-29 13:09:31.848401"], ["updated_at", "2018-08-29 13:09:31.848401"], ["token_created_at", "2018-08-29 13:09:31.843433"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TripsController#index as HTML
+  Parameters: {"user_id"=>"1572"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.851934') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "63LMsEN8LSbuGtswyuNhFCwR"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1572], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.854551') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "63LMsEN8LSbuGtswyuNhFCwR"], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = $1[0m  [["user_id", 1572]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.49ms)
+Completed 200 OK in 7ms (Views: 1.5ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jaleesa@hermiston.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Jarred"], ["token", "yg6cZaLMrTrP5ro4XiYf7jSY"], ["email", "jaleesa@hermiston.name"], ["password_digest", "$2a$04$nS9N7MQlFZYLSRKEKsLHue0W6JqGRI31SedL0S8faoDUoPPEjBc3G"], ["created_at", "2018-08-29 13:09:31.865004"], ["updated_at", "2018-08-29 13:09:31.865004"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1573], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.867236"], ["end_date", "2018-08-29 13:09:31.867315"], ["destination", "Dietrichport"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.867586"], ["arrival_time", "2018-08-29 13:09:31.867629"], ["user_id", 1573], ["created_at", "2018-08-29 13:09:31.870080"], ["updated_at", "2018-08-29 13:09:31.870080"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rochellruecker@daugherty.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Treena"], ["token", "pZQFw1jsrrZMVuehELZQqABP"], ["email", "rochellruecker@daugherty.co"], ["password_digest", "$2a$04$6eMq6UfMAxAO7.qw2wdjkejIwnJT2Z9/AnGKAfJFo.rMAMLqdYW9a"], ["created_at", "2018-08-29 13:09:31.876644"], ["updated_at", "2018-08-29 13:09:31.876644"], ["token_created_at", "2018-08-29 13:09:31.872469"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TripsController#index as HTML
+  Parameters: {"user_id"=>"1574"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.880417') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "pZQFw1jsrrZMVuehELZQqABP"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1574], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.884610') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "pZQFw1jsrrZMVuehELZQqABP"], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = $1[0m  [["user_id", 1574]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.23ms)
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 3.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "krystal@oconnellreichert.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Kazuko"], ["token", "R5yyL9oVuT2XkRyff8JjsfjK"], ["email", "krystal@oconnellreichert.name"], ["password_digest", "$2a$04$TiMW1iwbKXQ74xggIZWjZugxtn3JUiS6uThijnSManTsDeJiLYHSS"], ["created_at", "2018-08-29 13:09:31.894161"], ["updated_at", "2018-08-29 13:09:31.894161"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1575], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.896254"], ["end_date", "2018-08-29 13:09:31.896315"], ["destination", "Dickenston"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.896495"], ["arrival_time", "2018-08-29 13:09:31.896540"], ["user_id", 1575], ["created_at", "2018-08-29 13:09:31.898417"], ["updated_at", "2018-08-29 13:09:31.898417"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jackelyn@nitzschetorp.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Svetlana"], ["token", "i1NkKatCG6ekcPLbkpCGzyhN"], ["email", "jackelyn@nitzschetorp.com"], ["password_digest", "$2a$04$sVNyLOLhm5JNpmiCaZT1Se5vDSudC8rVBVkdvEzIDRgE5R3obaLc2"], ["created_at", "2018-08-29 13:09:31.904241"], ["updated_at", "2018-08-29 13:09:31.904241"], ["token_created_at", "2018-08-29 13:09:31.900457"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1576], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.906416"], ["end_date", "2018-08-29 13:09:31.906474"], ["destination", "North Ned"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.906729"], ["arrival_time", "2018-08-29 13:09:31.906756"], ["user_id", 1576], ["created_at", "2018-08-29 13:09:31.908409"], ["updated_at", "2018-08-29 13:09:31.908409"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TripsController#show as HTML
+  Parameters: {"user_id"=>"1576", "id"=>"589"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.911502') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "i1NkKatCG6ekcPLbkpCGzyhN"], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 589], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.914842') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "i1NkKatCG6ekcPLbkpCGzyhN"], ["LIMIT", 1]]
+[active_model_serializers] Rendered TripSerializer with ActiveModelSerializers::Adapter::Json (1.36ms)
+Completed 200 OK in 11ms (Views: 5.7ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elliot@browngutmann.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Naomi"], ["token", "FoJEKKaxynRQVTYwWBr9jHUQ"], ["email", "elliot@browngutmann.name"], ["password_digest", "$2a$04$rvYS3xdHmvuibKZ9Ieeu2uO.UQKNIy2LcIqu9KkdRvmRfo4J.erY6"], ["created_at", "2018-08-29 13:09:31.929693"], ["updated_at", "2018-08-29 13:09:31.929693"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1577], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.933537"], ["end_date", "2018-08-29 13:09:31.933608"], ["destination", "Bibiton"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.933902"], ["arrival_time", "2018-08-29 13:09:31.933932"], ["user_id", 1577], ["created_at", "2018-08-29 13:09:31.935595"], ["updated_at", "2018-08-29 13:09:31.935595"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "letatorp@haag.net"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at", "token_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Sheri"], ["token", "WRu2ai6o8ThdmnP7LeLvCBCq"], ["email", "letatorp@haag.net"], ["password_digest", "$2a$04$UCUZyfksSjlueJ7V2EjPsOn58y.uDyuce2.lbesToaQgUNq23GmfG"], ["created_at", "2018-08-29 13:09:31.941402"], ["updated_at", "2018-08-29 13:09:31.941402"], ["token_created_at", "2018-08-29 13:09:31.937597"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1578], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.943552"], ["end_date", "2018-08-29 13:09:31.943613"], ["destination", "Robelfurt"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.943790"], ["arrival_time", "2018-08-29 13:09:31.943816"], ["user_id", 1578], ["created_at", "2018-08-29 13:09:31.945471"], ["updated_at", "2018-08-29 13:09:31.945471"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::TripsController#show as HTML
+  Parameters: {"user_id"=>"1578", "id"=>"591"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.948814') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "WRu2ai6o8ThdmnP7LeLvCBCq"], ["LIMIT", 1]]
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 591], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 AND (token_created_at >= '2018-08-27 13:09:31.951658') ORDER BY "users"."id" ASC LIMIT $2[0m  [["token", "WRu2ai6o8ThdmnP7LeLvCBCq"], ["LIMIT", 1]]
+[active_model_serializers] Rendered TripSerializer with ActiveModelSerializers::Adapter::Json (0.48ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "anibal@schneider.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Brice"], ["token", "o8bxNeoWsAfkvcuqWTaxVUym"], ["email", "anibal@schneider.org"], ["password_digest", "$2a$04$lwxzkeIaylCUh6vRZUXJE.Gz2Zgl/DRRS6EcCU94Ijd.o5IJ8MUwi"], ["created_at", "2018-08-29 13:09:31.961005"], ["updated_at", "2018-08-29 13:09:31.961005"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1579], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.963103"], ["end_date", "2018-08-29 13:09:31.963163"], ["destination", "Debbrashire"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.963434"], ["arrival_time", "2018-08-29 13:09:31.963469"], ["user_id", 1579], ["created_at", "2018-08-29 13:09:31.965446"], ["updated_at", "2018-08-29 13:09:31.965446"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ronda@stoltenberg.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Johnathan"], ["token", "ZBFnT5Kh6BwP1bW5uWPKyeJ8"], ["email", "ronda@stoltenberg.name"], ["password_digest", "$2a$04$InMaHUEUksUzr6NPE05nVuDFszjG1lpDEn5JRyw6v0LIJFLQTsCZu"], ["created_at", "2018-08-29 13:09:31.972367"], ["updated_at", "2018-08-29 13:09:31.972367"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1580], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.974538"], ["end_date", "2018-08-29 13:09:31.974598"], ["destination", "East Scot"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.974845"], ["arrival_time", "2018-08-29 13:09:31.974872"], ["user_id", 1580], ["created_at", "2018-08-29 13:09:31.976589"], ["updated_at", "2018-08-29 13:09:31.976589"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lilliampowlowski@okuneva.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Jonna"], ["token", "V7xTBgBcJKo44kC7WRwdntUU"], ["email", "lilliampowlowski@okuneva.com"], ["password_digest", "$2a$04$7wl8ta/XsP2qHYjY3dnO9ujmZkcqNiLnQsK1gqFVa1HaDjrJQwBYC"], ["created_at", "2018-08-29 13:09:31.988745"], ["updated_at", "2018-08-29 13:09:31.988745"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1581], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:31.990786"], ["end_date", "2018-08-29 13:09:31.990848"], ["destination", "Port Burlberg"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:31.991142"], ["arrival_time", "2018-08-29 13:09:31.991170"], ["user_id", 1581], ["created_at", "2018-08-29 13:09:31.992842"], ["updated_at", "2018-08-29 13:09:31.992842"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "charles@gibson.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Edmundo"], ["token", "timsmgZ7gYfGxJSthSzbEQLV"], ["email", "charles@gibson.biz"], ["password_digest", "$2a$04$gDL2zJyJ3V9SRoAaA8rZ6uBtBv6OO8rsZJdcBbU7Vpdm63ie37Ju."], ["created_at", "2018-08-29 13:09:31.998697"], ["updated_at", "2018-08-29 13:09:31.998697"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1582], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:32.000954"], ["end_date", "2018-08-29 13:09:32.001019"], ["destination", "Hauckchester"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:32.001206"], ["arrival_time", "2018-08-29 13:09:32.001235"], ["user_id", 1582], ["created_at", "2018-08-29 13:09:32.002873"], ["updated_at", "2018-08-29 13:09:32.002873"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTrip Destroy (0.4ms)[0m  [1m[31mDELETE FROM "trips" WHERE "trips"."id" = $1[0m  [["id", 595]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "daren@purdykoepp.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Doria"], ["token", "HiG4F8jQNUVxe2d8suiYgD9s"], ["email", "daren@purdykoepp.co"], ["password_digest", "$2a$04$ApOC7i05icJuT9kbM9UBSeVnXDA8pJD4bnkn7wqify3CnWXKIg6Ya"], ["created_at", "2018-08-29 13:09:32.013579"], ["updated_at", "2018-08-29 13:09:32.013579"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1583], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:32.015764"], ["end_date", "2018-08-29 13:09:32.015824"], ["destination", "North Reedmouth"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:32.016134"], ["arrival_time", "2018-08-29 13:09:32.016163"], ["user_id", 1583], ["created_at", "2018-08-29 13:09:32.018061"], ["updated_at", "2018-08-29 13:09:32.018061"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "andy@stoltenberglangworth.org"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Dagmar"], ["token", "eub5ix6xSF9at7FvSoPdF2zu"], ["email", "andy@stoltenberglangworth.org"], ["password_digest", "$2a$04$s6NCvuFyAS5mBEC3mjt.6.6NLqR2QFTIRFliWqtJNR2CqEUlMHzFm"], ["created_at", "2018-08-29 13:09:32.025933"], ["updated_at", "2018-08-29 13:09:32.025933"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1584], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:32.028082"], ["end_date", "2018-08-29 13:09:32.028154"], ["destination", "Shaquanafurt"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:32.028669"], ["arrival_time", "2018-08-29 13:09:32.028718"], ["user_id", 1584], ["created_at", "2018-08-29 13:09:32.030870"], ["updated_at", "2018-08-29 13:09:32.030870"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "stevie@stracke.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Danny"], ["token", "DFcuaFQiPqH8TMKxw1uemtef"], ["email", "stevie@stracke.co"], ["password_digest", "$2a$04$FIIRjzttXlvjzyfBNd4KFO7HRicZCQhD4if2TzE/0U6keQaouZm2C"], ["created_at", "2018-08-29 13:09:32.040471"], ["updated_at", "2018-08-29 13:09:32.040471"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1585], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:32.042633"], ["end_date", "2018-08-29 13:09:32.042697"], ["destination", "Port Rickiestad"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:32.042990"], ["arrival_time", "2018-08-29 13:09:32.043024"], ["user_id", 1585], ["created_at", "2018-08-29 13:09:32.044925"], ["updated_at", "2018-08-29 13:09:32.044925"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lorenzo@skilesbradtke.biz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sheryll"], ["token", "wSCaeY4djWeXNUMARnkdoieC"], ["email", "lorenzo@skilesbradtke.biz"], ["password_digest", "$2a$04$oNoU1Hzu2ZWUhlLzDpK7v.N.ge55PY5lSIug/d.goRK8cDRAn4ek."], ["created_at", "2018-08-29 13:09:32.053434"], ["updated_at", "2018-08-29 13:09:32.053434"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1586], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("start_date", "end_date", "destination", "departure_airport_code", "arrival_airport_code", "departure_time", "arrival_time", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["start_date", "2018-08-29 13:09:32.055509"], ["end_date", "2018-08-29 13:09:32.055569"], ["destination", "Kautzerstad"], ["departure_airport_code", "GHJSY789"], ["arrival_airport_code", "HJKHJK78"], ["departure_time", "2018-08-29 13:09:32.055747"], ["arrival_time", "2018-08-29 13:09:32.055775"], ["user_id", 1586], ["created_at", "2018-08-29 13:09:32.057537"], ["updated_at", "2018-08-29 13:09:32.057537"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luciuspagac@dubuque.co"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ulrike"], ["token", "uSLHR1gn9yahpcPen7JXRLBn"], ["email", "luciuspagac@dubuque.co"], ["password_digest", "$2a$04$IRjPmPseqlI7r/Z5I.erDeAQbmwJ3caLLiaJs1KO9XbExpcDdedsa"], ["created_at", "2018-08-29 13:09:32.066189"], ["updated_at", "2018-08-29 13:09:32.066189"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "luciuspagac@dubuque.co"], ["id", 1587], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kipmayert@stoltenberghermiston.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "token", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Karissa"], ["token", "x7Ve9cfaqhDYs4J2yeYxAgdJ"], ["email", "kipmayert@stoltenberghermiston.name"], ["password_digest", "$2a$04$j9MRyB0gwM84K4Io2uaB2.AW6.XU5JqSEhRCxPJIncjEeUF.YiCgi"], ["created_at", "2018-08-29 13:09:32.074614"], ["updated_at", "2018-08-29 13:09:32.074614"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL AND "users"."id" != $1 LIMIT $2[0m  [["id", 1588], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
