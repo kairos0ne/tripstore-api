@@ -3,4 +3,5 @@ class Trip < ApplicationRecord
   validates :end_date,  :presence => true
   validates :destination, :presence => true
   belongs_to :user
+  has_many :todo
 end

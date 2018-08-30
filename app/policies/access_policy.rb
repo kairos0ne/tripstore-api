@@ -7,10 +7,12 @@ class AccessPolicy
       # permissions for admin role 
       can [:read, :create, :update, :destroy], User
       can [:read, :create, :update, :destroy], Trip
+      can [:read, :create, :update, :destroy], Todo
     end
 
     role :member, proc { |user| user.member? } do
       # permissions for member role 
+      
       can :create, Trip
       can :read, Trip do |trip, user|
         trip.user_id == user.id
@@ -18,6 +20,15 @@ class AccessPolicy
       can [:update, :destroy], Trip do |trip,user|
         trip.user_id == user.id
       end
+
+      can :create, Todo
+      can :read, Todo do |user, trip, todo|
+        user.trip == trip && trip.todo == todo 
+      end
+      can [:update, :destroy], Todo do |todo,trip,user|
+        
+      end
+      
       can [:update, :destroy], User do |current_user,user|
         user.id == current_user.id
       end

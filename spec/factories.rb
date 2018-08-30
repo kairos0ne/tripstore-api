@@ -1,7 +1,12 @@
 # This will guess the User class
 FactoryBot.define do
+    factory :todo do
+      title "MyString"
+      description "MyText"
+      trip nil
+    end
   
-    factory :user do
+    factory :user, class: User do
       name { Faker::Name.first_name }
       email  { Faker::Internet.email }
       password { "123456" }
