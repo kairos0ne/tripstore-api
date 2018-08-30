@@ -1,9 +1,10 @@
 # This will guess the User class
 FactoryBot.define do
-    factory :todo do
-      title "MyString"
-      description "MyText"
-      trip nil
+    
+  factory :todo do
+      title { Faker::Lorem.sentence }
+      description { Faker::Lorem.paragraph }
+      # trip nil
     end
   
     factory :user, class: User do

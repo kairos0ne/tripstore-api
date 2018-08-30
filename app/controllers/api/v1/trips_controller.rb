@@ -14,12 +14,14 @@ module Api
         @trips = user.trip.all
         # Check if the the params contains pagination 
         if params[:page]
+          
           paginate json: @trips, meta: {
             total: @trips.count,
             per_page: params[:per_page].to_i, 
             page: params[:page].to_i,
             pages: (@trips.count / params[:per_page].to_f).ceil
           }
+
         else 
           # Render json response for all trips  
           render json: @trips
@@ -51,9 +53,9 @@ module Api
     # POST /trips
     def create
       @trip = Trip.new(trip_params)
+      @trip.user_id = params[:user_id]
         authorize! :create, @trip
       if @trip.save
-        
         render json: @trip, status: :created
       else
         render json: @trip.errors, status: :unprocessable_entity

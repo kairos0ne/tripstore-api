@@ -23,7 +23,7 @@ class AccessPolicy
 
       can :create, Todo
       can :read, Todo do |user, trip, todo|
-        user.trip == trip && trip.todo == todo 
+        user.trip.id == trip.id && trip.todo_id == todo.id
       end
       can [:update, :destroy], Todo do |todo,trip,user|
         

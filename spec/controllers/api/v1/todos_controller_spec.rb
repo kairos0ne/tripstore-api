@@ -1,91 +1,81 @@
 require 'rails_helper'
 
-RSpec.describe TodosController, type: :controller do
+RSpec.describe Api::V1::TodosController do
 
+    before(:each) do
+        user = FactoryBot.create :user
+        trip = FactoryBot.create(:trip, user_id: user.id)
+        todo = FactoryBot.create(:todo, trip_id: trip.id)
+        request.headers["Authorization"] = "Token " + user.token  
+    end
 
+  # Test if all users are returned on the index method 
   describe "GET #index" do
-    it "returns a success response" do
-      todo = Todo.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_successful
+
+    before do
+        user = FactoryBot.create(:user, token_created_at: Time.zone.now.to_datetime)
+        trip = FactoryBot.create(:trip, user_id: user.id)
+        todo = FactoryBot.create(:todo, trip_id: trip.id)
+        request.headers["Authorization"] = "Token " + user.token 
+        get :index, params: { user_id: user.id, trip_id: trip.id, id: todo.id }
     end
+
+    it "returns http success" do
+      expect(response).to have_http_status(:success)
+    end
+
+    it "JSON body response contains expected trips attributes" do
+      json_response = JSON.parse(response.body)
+      expect(json_response.keys).to match_array("todos")
+    end
+
   end
 
+  # Test that the trip is returned on the show method 
   describe "GET #show" do
-    it "returns a success response" do
-      todo = Todo.create! valid_attributes
-      get :show, params: {id: todo.to_param}, session: valid_session
-      expect(response).to be_successful
+
+    before do
+        user = FactoryBot.create(:user, token_created_at: Time.zone.now.to_datetime)
+        trip = FactoryBot.create(:trip, user_id: user.id)
+        todo = FactoryBot.create(:todo, trip_id: trip.id)
+        request.headers["Authorization"] = "Token " + user.token 
+        get :show, params: { user_id: user.id, trip_id: trip.id, id: todo.id  }
     end
+
+    it "returns http success" do
+      expect(response).to have_http_status(:success)
+    end
+
+    it "JSON body response contains expected trips attributes" do
+      json_response = JSON.parse(response.body)
+      expect(json_response.keys).to match_array("todo")
+    end
+
   end
 
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Todo" do
-        expect {
-          post :create, params: {todo: valid_attributes}, session: valid_session
-        }.to change(Todo, :count).by(1)
-      end
+  # Create a Trip in the db 
+  describe "Trip #create" do
 
-      it "renders a JSON response with the new todo" do
-
-        post :create, params: {todo: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(todo_url(Todo.last))
-      end
-    end
-
-    context "with invalid params" do
-      it "renders a JSON response with errors for the new todo" do
-
-        post :create, params: {todo: invalid_attributes}, session: valid_session
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
-      end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested todo" do
-        todo = Todo.create! valid_attributes
-        put :update, params: {id: todo.to_param, todo: new_attributes}, session: valid_session
-        todo.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "renders a JSON response with the todo" do
-        todo = Todo.create! valid_attributes
-
-        put :update, params: {id: todo.to_param, todo: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
-      end
-    end
-
-    context "with invalid params" do
-      it "renders a JSON response with errors for the todo" do
-        todo = Todo.create! valid_attributes
-
-        put :update, params: {id: todo.to_param, todo: invalid_attributes}, session: valid_session
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested todo" do
-      todo = Todo.create! valid_attributes
+    it 'creates a new Todo' do
       expect {
-        delete :destroy, params: {id: todo.to_param}, session: valid_session
-      }.to change(Todo, :count).by(-1)
+        user = FactoryBot.create(:user)
+        trip = FactoryBot.create(:trip, user_id: user.id)
+        todo = FactoryBot.create(:todo, trip_id: trip.id)
+        todo.save
+      }.to change(Todo, :count).by(1)
     end
+
+  end
+  # Delete a Trip 
+  describe "Trip #destroy" do
+
+    it 'Deletes a Trip' do
+      user = FactoryBot.create(:user)
+      trip = FactoryBot.create(:trip, user_id: user.id)
+      todo = FactoryBot.create(:todo, trip_id: trip.id)
+      expect { todo.destroy }.to change(Todo, :count).by(-1)
+    end
+
   end
 
 end
