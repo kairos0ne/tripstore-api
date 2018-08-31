@@ -22,11 +22,11 @@ class AccessPolicy
       end
 
       can :create, Todo
-      can :read, Todo do |user, trip, todo|
-        user.trip.id == trip.id && trip.todo_id == todo.id
+      can :read, Todo do |user, todo|
+          user.id == params[:user_id]
       end
-      can [:update, :destroy], Todo do |todo,trip,user|
-        
+      can [:update, :destroy], Todo do |todo,user|
+        user.id == params[:user_id]
       end
       
       can [:update, :destroy], User do |current_user,user|
