@@ -32,6 +32,8 @@ gem 'faker'
 
 gem 'will_paginate'
 gem 'api-pagination'
+gem 'google_places'
+gem 'figaro'
 
 
 group :development, :test do
