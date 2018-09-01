@@ -1,5 +1,10 @@
 # This will guess the User class
 FactoryBot.define do
+  factory :destination do
+    title "MyString"
+    description "MyText"
+    trip nil
+  end
     
   factory :todo do
       title { Faker::Lorem.sentence }

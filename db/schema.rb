@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_30_113314) do
+ActiveRecord::Schema.define(version: 2018_09_01_105514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_destinations_on_trip_id"
+  end
 
   create_table "todos", force: :cascade do |t|
     t.string "title"
@@ -51,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_113314) do
     t.index ["token", "token_created_at"], name: "index_users_on_token_and_token_created_at"
   end
 
+  add_foreign_key "destinations", "trips"
   add_foreign_key "todos", "trips"
   add_foreign_key "trips", "users"
 end

@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   
+  
   get "/" => "home#index"
   namespace :api do 
     namespace :v1 do 
       resources :users do 
-        resources :trips do 
+        resources :trips do
+          resources :destinations do 
+            resources :places, only: [:index]
+          end 
           resources :todos
-          resources :places, only: [:index]
         end
       end
       
