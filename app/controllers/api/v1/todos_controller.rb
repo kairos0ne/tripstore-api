@@ -54,7 +54,7 @@ module Api
       # GET /todos/1
       def show
         user = User.find(params[:user_id])
-        authorize! :read, @todo
+        
         if current_user.admin == true
           render json: @todo
         elsif current_user.id == user.id  

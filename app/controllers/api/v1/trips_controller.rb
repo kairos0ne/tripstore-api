@@ -86,7 +86,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def trip_params
-        params.require(:trip).permit(:start_date, :end_date, :destination, :departure_airport_code, :arrival_airport_code, :departure_time, :arrival_time, :user_id)
+        params.require(:trip).permit(:start_date, :end_date, :departure_airport_code, :arrival_airport_code, :departure_time, :arrival_time, :user_id)
       end
     end
   end

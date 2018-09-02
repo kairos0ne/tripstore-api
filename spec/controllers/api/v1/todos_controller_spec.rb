@@ -24,14 +24,14 @@ RSpec.describe Api::V1::TodosController do
       expect(response).to have_http_status(:success)
     end
 
-    it "JSON body response contains expected trips attributes" do
+    it "JSON body response contains expected todos attributes" do
       json_response = JSON.parse(response.body)
       expect(json_response.keys).to match_array("todos")
     end
 
   end
 
-  # Test that the trip is returned on the show method 
+  # Test that the todo is returned on the show method 
   describe "GET #show" do
 
     before do
@@ -46,7 +46,7 @@ RSpec.describe Api::V1::TodosController do
       expect(response).to have_http_status(:success)
     end
 
-    it "JSON body response contains expected trips attributes" do
+    it "JSON body response contains expected todos attributes" do
       json_response = JSON.parse(response.body)
       expect(json_response.keys).to match_array("todo")
     end

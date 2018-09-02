@@ -23,10 +23,10 @@ class AccessPolicy
 
       can :create, Todo
       can :read, Todo do |user, todo|
-          user.id == params[:user_id]
+          
       end
       can [:update, :destroy], Todo do |todo,user|
-        user.id == params[:user_id]
+        
       end
       
       can [:update, :destroy], User do |current_user,user|

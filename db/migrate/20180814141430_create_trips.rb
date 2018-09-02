@@ -3,7 +3,6 @@ class CreateTrips < ActiveRecord::Migration[5.0]
     create_table :trips do |t|
       t.timestamp :start_date
       t.timestamp :end_date
-      t.string :destination
       t.string :departure_airport_code
       t.string :arrival_airport_code
       t.timestamp :departure_time

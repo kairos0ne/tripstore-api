@@ -33,10 +33,9 @@ ActiveRecord::Schema.define(version: 2018_09_01_105514) do
     t.index ["trip_id"], name: "index_todos_on_trip_id"
   end
 
-  create_table "trips", force: :cascade do |t|
+  create_table "trips", id: :serial, force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string "destination"
     t.string "departure_airport_code"
     t.string "arrival_airport_code"
     t.datetime "departure_time"
@@ -47,7 +46,7 @@ ActiveRecord::Schema.define(version: 2018_09_01_105514) do
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "token"
     t.string "email"
