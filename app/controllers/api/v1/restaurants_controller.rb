@@ -1,7 +1,7 @@
 
 module Api
     module V1  
-      class PlacesController < ApiController
+      class RestaurantsController < ApiController
         before_action :require_login
         before_action :set_todo, only: [:show, :update, :destroy]
   
@@ -12,7 +12,7 @@ module Api
           if current_user.admin == true
             @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
             destination = Destination.find(params[:destination_id])
-            places = @client.spots_by_query('Nearby ' + destination.title, :types => ['museum'], multipage: true)
+            places = @client.spots_by_query('Nearby ' + destination.title, :types => ['restaurant'], multipage: true)
             # while there is a next page token specified, keep processing
             while places.last.nextpagetoken.present?
               places.push(@client.spots_by_pagetoken(places.last.nextpagetoken))
@@ -22,7 +22,7 @@ module Api
           elsif current_user.id == user.id 
             @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
             destination = Destination.find(params[:destination_id])
-            places = @client.spots_by_query('Nearby ' + destination.title, :types => ['museum'], multipage: true)
+            places = @client.spots_by_query('Nearby ' + destination.title, :types => ['restaurant'], multipage: true)
             # while there is a next page token specified, keep processing
             while places.last.nextpagetoken.present?
               places.push(@client.spots_by_pagetoken(places.last.nextpagetoken))

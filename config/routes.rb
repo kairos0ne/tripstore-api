@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         resources :trips do
           resources :destinations do 
             resources :places, only: [:index]
+            resources :bars, only: [:index]
+            resources :restaurants, only: [:index]
+            resources :parks, only: [:index]
           end 
           resources :todos
         end
