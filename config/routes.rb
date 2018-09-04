@@ -7,10 +7,11 @@ Rails.application.routes.draw do
       resources :users do 
         resources :trips do
           resources :destinations do 
-            resources :places, only: [:index]
+            resources :museums, only: [:index]
             resources :bars, only: [:index]
             resources :restaurants, only: [:index]
             resources :parks, only: [:index]
+            resources :clubs, only: [:index]
           end 
           resources :todos
         end
