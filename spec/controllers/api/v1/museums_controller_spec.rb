@@ -21,7 +21,7 @@ RSpec.describe Api::V1::MuseumsController do
 
     it "JSON body response contains expected places attributes" do
       json_response = JSON.parse(response.body)
-      expect(json_response.keys).to match_array("name")
+      expect(json_response.keys).to match_array("museums")
     end
 
   end

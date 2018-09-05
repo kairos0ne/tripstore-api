@@ -12,23 +12,13 @@ module Api
           if current_user.admin == true
             @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
             destination = Destination.find(params[:destination_id])
-            places = @client.spots_by_query('Nearby ' + destination.title, :types => ['amusement_park'], multipage: true)
-            # while there is a next page token specified, keep processing
-            while places.last.nextpagetoken.present?
-              places.push(@client.spots_by_pagetoken(places.last.nextpagetoken))
-            end
-            @places = places
-            render json: @places  
+            @places = @client.spots_by_query('Nearby ' + destination.title, :types => ['amusement_park'], multipage: true)
+            render json: @places, :root => 'parks'
           elsif current_user.id == user.id 
             @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
             destination = Destination.find(params[:destination_id])
-            places = @client.spots_by_query('Nearby ' + destination.title, :types => ['amusement_park'], multipage: true)
-            # while there is a next page token specified, keep processing
-            while places.last.nextpagetoken.present?
-              places.push(@client.spots_by_pagetoken(places.last.nextpagetoken))
-            end
-            @places = places
-            render json: @places  
+            @places = @client.spots_by_query('Nearby ' + destination.title, :types => ['amusement_park'], multipage: true)
+            render json: @places, :root => 'parks'
           else
             render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json, :status => :forbidden
           end
