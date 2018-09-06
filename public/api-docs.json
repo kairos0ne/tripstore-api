@@ -24,6 +24,10 @@
       "description": "Clubs Management"
     },
     {
+      "path": "/api/v1/places.{format}",
+      "description": "Places Management"
+    },
+    {
       "path": "/api/v1/destinations.{format}",
       "description": "Destination Management"
     },

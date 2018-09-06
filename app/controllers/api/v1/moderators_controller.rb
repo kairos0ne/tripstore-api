@@ -10,7 +10,7 @@ module Api
         swagger_api :create do
           summary "Creates a Admin user"
           notes "Only admins have access to this endpoint"
-          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :header, :Authorization, :string, :required, "To authorize the requests."
           
           param :form, "user[name]", :string, :optional, "User Name"
           param :form, "user[email]", :string, :required, "User Email"

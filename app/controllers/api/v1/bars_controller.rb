@@ -10,7 +10,7 @@ module Api
         swagger_api :index do
           summary "Fetches all Bars for a given Destination. Uses Google Places Api"
           notes "This lists all the bars that are nearby the destination"
-          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :header, :Authorization, :string, :required, "To authorize the requests."
           param :path, :user_id, :integer, :required, "User Id"
           param :path, :trip_id, :integer, :required, "Trip Id"
           param :path, :destination_id, :integer, :required, "Destination Id"

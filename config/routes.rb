@@ -13,6 +13,7 @@ Rails.application.routes.draw do
             resources :restaurants, only: [:index]
             resources :parks, only: [:index]
             resources :clubs, only: [:index]
+            resources :places, only: [:index]
           end 
           resources :todos
         end

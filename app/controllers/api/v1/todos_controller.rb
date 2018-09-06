@@ -11,7 +11,7 @@ module Api
       swagger_api :index do
         summary "Fetches all the todos for a given trip"
         notes "This lists all the todo for a trip. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips/1/todos"
-        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :header, :Authorization, :string, :required, "To authorize the requests."
         param :path, :user_id, :integer, :required, "User Id"
         param :path, :trip_id, :integer, :required, "Trip Id"
         response :ok
@@ -68,7 +68,7 @@ module Api
 
       swagger_api :show do
         summary "Fetches a single todo by ID"
-        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :header, :Authorization, :string, :required, "To authorize the requests."
         param :path, :user_id, :integer, :required, "User Id"
         param :path, :trip_id, :integer, :required, "Trip Id"
         response :ok
@@ -92,7 +92,7 @@ module Api
 
       swagger_api :create do
         summary "Creates a new Todo"
-        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :header, :Authorization, :string, :required, "To authorize the requests."
         param :path, :user_id, :integer, :required, "User Id"
         param :path, :trip_id, :integer, :required, "Trip Id"
         param :form, "todo[title]", :string, :optional, "Todo Title"
@@ -116,7 +116,7 @@ module Api
 
       swagger_api :update do
         summary "Updates a Todo"
-        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :header, :Authorization, :string, :required, "To authorize the requests."
         param :path, :user_id, :integer, :required, "User Id"
         param :path, :trip_id, :integer, :required, "Trip Id"
         param :form, "todo[title]", :string, :optional, "Todo Title"
@@ -138,7 +138,7 @@ module Api
 
       swagger_api :destroy do
         summary "Deletes an existing Todo item"
-        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :header, :Authorization, :string, :required, "To authorize the requests."
         param :path, :user_id, :integer, :required, "User Id"
         param :path, :trip_id, :integer, :required, "Trip Id"
         param :path, :id, :integer, :require, "Todo Id"

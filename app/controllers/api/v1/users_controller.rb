@@ -14,7 +14,7 @@ module Api
         
         swagger_api :show do
           summary "Fetches a single User item"
-          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :header, :Authorization, :string, :required, "To authorize the requests."
           param :path, :id, :integer, :optional, "User Id"
           response :ok, "Success", :User
           response :unauthorized
@@ -38,7 +38,7 @@ module Api
         swagger_api :index do
           summary "Fetches all User "
           notes "This lists all the active users. Only users with admin access have the rights to view this endpoint. eg http://localhost:3000/api/v1/users?page=1&per_page=2"
-          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :header, :Authorization, :string, :required, "To authorize the requests."
           param :query, :page, :integer, :optional, "Page number"
           param :query, :per_page, :integer, :optional, "Per page option"
           response :ok
@@ -93,7 +93,7 @@ module Api
 
         swagger_api :update do
           summary "Updates an existing User"
-          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :header, :Authorization, :string, :required, "To authorize the requests."
           param :path, :id, :integer, :required, "User Id"
           param :form, "user[name]", :string, :required, "Name"
           param :form, "user[email]", :string, :required, "Email address"
@@ -119,7 +119,7 @@ module Api
 
         swagger_api :destroy do
           summary "Deletes an existing User item"
-          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :header, :Authorization, :string, :required, "To authorize the requests."
           param :path, :id, :integer, :optional, "User Id"
           response :ok
           response :unauthorized

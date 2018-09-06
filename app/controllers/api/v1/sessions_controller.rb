@@ -24,7 +24,7 @@ module Api
 
       swagger_api :destroy do
         summary "Logs a user out"
-        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :header, :Authorization, :string, :required, "To authorize the requests."
         response :ok
         response :unauthorized
       end

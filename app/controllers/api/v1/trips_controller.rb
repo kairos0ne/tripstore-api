@@ -10,7 +10,7 @@ module Api
     swagger_api :index do
       summary "Fetches all the trips for a given user"
       notes "This lists all the trips for user. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips?page=1&per_page=10"
-      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :header, :Authorization, :string, :required, "To authorize the requests."
       param :query, :page, :integer, :optional, "Page number"
       param :query, :per_page, :integer, :optional, "Per page option"
       param :path, :user_id, :integer, :required, "User Id"
@@ -61,7 +61,7 @@ module Api
 
     swagger_api :show do
       summary "Fetches a single trip by ID"
-      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :header, :Authorization, :string, :required, "To authorize the requests."
       param :path, :user_id, :integer, :optional, "User Id"
       param :path, :id, :integer, :optional, "Trip Id"
       response :ok, "Success", :Trip
@@ -78,7 +78,7 @@ module Api
 
     swagger_api :create do
       summary "Creates a new Trip"
-      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :header, :Authorization, :string, :required, "To authorize the requests."
       param :path, :user_id, :integer, :required, "User Id"
       param :form, "trip[start_date]", :timestamp, :required, "Start Date"
       param :form, "trip[end_date]", :timestamp, :required, "End Date"
@@ -107,7 +107,7 @@ module Api
 
     swagger_api :update do
       summary "Updates a Trip by ID"
-      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :header, :Authorization, :string, :required, "To authorize the requests."
       param :path, :user_id, :integer, :required, "User Id"
       param :path, :id, :integer, :required, "Trip Id"
       param :form, "trip[start_date]", :timestamp, :required, "Start Date"
@@ -134,7 +134,7 @@ module Api
 
     swagger_api :destroy do
       summary "Deletes an existing Trip item"
-      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :header, :Authorization, :string, :required, "To authorize the requests."
       param :path, :user_id, :integer, :required, "User Id"
       param :path, :id, :integer, :required, "Trip Id"
       response :ok

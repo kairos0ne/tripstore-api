@@ -13,7 +13,7 @@
           "parameters": [
             {
               "paramType": "header",
-              "name": "Authoraization",
+              "name": "Authorization",
               "type": "string",
               "description": "To authorize the requests.",
               "required": true
@@ -125,7 +125,7 @@
           "parameters": [
             {
               "paramType": "header",
-              "name": "Authoraization",
+              "name": "Authorization",
               "type": "string",
               "description": "To authorize the requests.",
               "required": true
@@ -173,7 +173,7 @@
           "parameters": [
             {
               "paramType": "header",
-              "name": "Authoraization",
+              "name": "Authorization",
               "type": "string",
               "description": "To authorize the requests.",
               "required": true
@@ -249,7 +249,7 @@
           "parameters": [
             {
               "paramType": "header",
-              "name": "Authoraization",
+              "name": "Authorization",
               "type": "string",
               "description": "To authorize the requests.",
               "required": true

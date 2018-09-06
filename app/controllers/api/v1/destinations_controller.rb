@@ -8,7 +8,7 @@ module Api
       swagger_api :index do
         summary "Fetches all the destinations for a given trip"
         notes "This lists all the destinations for a trip. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips/1/destinations"
-        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :header, :Authorization, :string, :required, "To authorize the requests."
         param :path, :user_id, :integer, :required, "User Id"
         param :path, :trip_id, :integer, :required, "Trip Id"
         response :ok
