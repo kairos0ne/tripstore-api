@@ -29,7 +29,7 @@ module Api
                 if params[:lat] && params[:lon]
                     @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
                     destination = Destination.find(params[:destination_id])
-                    @places = @client.spots(params[:lat], params[:lon], :types => ['establishment'])
+                    @places = @client.spots(params[:lat], params[:lon], :types => ['establishment', 'restaurant', 'food', 'clubs'])
                     render json: @places, :root => 'places' 
                 else 
                     render :json => {:error => "No longitude and latitude supplied"}.to_json, :status => :forbidden
@@ -38,7 +38,7 @@ module Api
                 if params[:lat] && params[:lon]
                     @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
                     destination = Destination.find(params[:destination_id])
-                    @places = @client.spots(params[:lat], params[:lon], :types => ['establishment'])
+                    @places = @client.spots(params[:lat], params[:lon], :types => ['establishment', 'restaurant', 'food', 'clubs'])
                     render json: @places, :root => 'places' 
                 else 
                     render :json => {:error => "No longitude and latitude supplied"}.to_json, :status => :forbidden
