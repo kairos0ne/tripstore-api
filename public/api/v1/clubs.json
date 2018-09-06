@@ -1,0 +1,67 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "clubs",
+  "apis": [
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/destinations/{destination_id}/clubs",
+      "operations": [
+        {
+          "summary": "Fetches all Clubs for a given Destination. Uses Google Places Api",
+          "notes": "This lists all the clubs that are nearby the destination",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "destination_id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Clubs#index",
+          "method": "get"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

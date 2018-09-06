@@ -5,11 +5,22 @@ module Api
       
       before_action :set_user, only: [:show, :update, :destroy]
       before_action :require_login, only: [:show, :index, :update, :create_admin, :destroy]
+
+      swagger_controller :users, "User Management"
       
         def new
           @user = User.new
         end
         
+        swagger_api :show do
+          summary "Fetches a single User item"
+          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :path, :id, :integer, :optional, "User Id"
+          response :ok, "Success", :User
+          response :unauthorized
+          response :not_acceptable
+          response :not_found
+        end
         
         # GET /user/:id
         def show
@@ -23,6 +34,19 @@ module Api
             render json: @user
           end
         end
+
+        swagger_api :index do
+          summary "Fetches all User "
+          notes "This lists all the active users. Only users with admin access have the rights to view this endpoint. eg http://localhost:3000/api/v1/users?page=1&per_page=2"
+          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :query, :page, :integer, :optional, "Page number"
+          param :query, :per_page, :integer, :optional, "Per page option"
+          response :ok
+          response :unauthorized
+          response :not_acceptable, "The request you made is not acceptable"
+          response :requested_range_not_satisfiable
+        end
+      
 
         def index
 
@@ -44,6 +68,17 @@ module Api
           end
 
         end
+
+        swagger_api :create do
+          summary "Creates a new User"
+          param :form, "user[name]", :string, :required, "Name"
+          param :form, "user[email]", :string, :required, "Email address"
+          param :form, "user[password]", :string, :required, "Password"
+          param :form, "user[password_confirmation]", :string, :required, "Password Confirmation"
+          response :created
+          response :unauthorized
+          response :not_acceptable
+        end
       
         def create
           @user = User.new(user_params)
@@ -55,6 +90,21 @@ module Api
           end
         end
 
+
+        swagger_api :update do
+          summary "Updates an existing User"
+          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :path, :id, :integer, :required, "User Id"
+          param :form, "user[name]", :string, :required, "Name"
+          param :form, "user[email]", :string, :required, "Email address"
+          param :form, "user[password]", :string, :required, "Password"
+          param :form, "user[password_confirmation]", :string, :required, "Password Confirmation"
+          response :ok
+          response :unauthorized
+          response :not_found
+          response :not_acceptable
+        end
+
         # PATCH/PUT /users/1
         def update
           authorize! :update, @user
@@ -64,6 +114,16 @@ module Api
           else
             render json: @user.errors, status: :unprocessable_entity
           end
+        end
+
+
+        swagger_api :destroy do
+          summary "Deletes an existing User item"
+          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :path, :id, :integer, :optional, "User Id"
+          response :ok
+          response :unauthorized
+          response :not_found
         end
 
         # DELETE /users/1

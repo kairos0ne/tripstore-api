@@ -1,0 +1,317 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "destinations",
+  "apis": [
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/destinations",
+      "operations": [
+        {
+          "summary": "Fetches all the destinations for a given trip",
+          "notes": "This lists all the destinations for a trip. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips/1/destinations",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Destinations#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/destinations",
+      "operations": [
+        {
+          "summary": "Creates a new Destination",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "destination[title]",
+              "type": "string",
+              "description": "Todo Title",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "destination[description]",
+              "type": "string",
+              "description": "Todo Description",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Destinations#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/destinations/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single destination",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Destinations#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/destinations/{id}",
+      "operations": [
+        {
+          "summary": "Updates a Destination",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "destination[title]",
+              "type": "string",
+              "description": "Todo Title",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[description]",
+              "type": "string",
+              "description": "Todo Description",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Destinations#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/destinations/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Destination item",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Destinations#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

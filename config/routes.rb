@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   get "/" => "home#index"
+  get '/api' => redirect('/dist/index.html?url=/api-docs.json')
   namespace :api do 
     namespace :v1 do 
       resources :users do 

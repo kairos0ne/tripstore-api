@@ -1,0 +1,310 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "todos",
+  "apis": [
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/todos",
+      "operations": [
+        {
+          "summary": "Fetches all the todos for a given trip",
+          "notes": "This lists all the todo for a trip. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips/1/todos",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Todos#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/todos",
+      "operations": [
+        {
+          "summary": "Creates a new Todo",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "todo[title]",
+              "type": "string",
+              "description": "Todo Title",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "todo[description]",
+              "type": "string",
+              "description": "Todo Description",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Todos#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/todos/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single todo by ID",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Todos#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/todos/{id}",
+      "operations": [
+        {
+          "summary": "Updates a Todo",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "todo[title]",
+              "type": "string",
+              "description": "Todo Title",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "todo[description]",
+              "type": "string",
+              "description": "Todo Description",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Todos#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/todos/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Todo item",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Todo Id",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Todos#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

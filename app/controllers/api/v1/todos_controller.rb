@@ -5,6 +5,20 @@ module Api
       before_action :require_login
       before_action :set_todo, only: [:show, :update, :destroy]
 
+
+      swagger_controller :todos, "Todo Management"
+
+      swagger_api :index do
+        summary "Fetches all the todos for a given trip"
+        notes "This lists all the todo for a trip. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips/1/todos"
+        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :path, :user_id, :integer, :required, "User Id"
+        param :path, :trip_id, :integer, :required, "Trip Id"
+        response :ok
+        response :unauthorized
+        response :forbidden, "User does not have permissions"
+      end
+
       # GET /todos
       def index
         
@@ -51,6 +65,18 @@ module Api
         end
       end
 
+
+      swagger_api :show do
+        summary "Fetches a single todo by ID"
+        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :path, :user_id, :integer, :required, "User Id"
+        param :path, :trip_id, :integer, :required, "Trip Id"
+        response :ok
+        response :unauthorized
+        response :forbidden, "User does not have permissions"
+      end
+
+
       # GET /todos/1
       def show
         user = User.find(params[:user_id])
@@ -64,6 +90,19 @@ module Api
         end
       end
 
+      swagger_api :create do
+        summary "Creates a new Todo"
+        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :path, :user_id, :integer, :required, "User Id"
+        param :path, :trip_id, :integer, :required, "Trip Id"
+        param :form, "todo[title]", :string, :optional, "Todo Title"
+        param :form, "todo[description]", :string, :optional, "Todo Description"
+        response :ok
+        response :unauthorized
+        response :unprocessable_entity
+        response :forbidden
+      end
+
       # POST /todos
       def create
         @todo = Todo.new(todo_params)
@@ -75,6 +114,19 @@ module Api
         end
       end
 
+      swagger_api :update do
+        summary "Updates a Todo"
+        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :path, :user_id, :integer, :required, "User Id"
+        param :path, :trip_id, :integer, :required, "Trip Id"
+        param :form, "todo[title]", :string, :optional, "Todo Title"
+        param :form, "todo[description]", :string, :optional, "Todo Description"
+        response :ok
+        response :unauthorized
+        response :unprocessable_entity
+        response :forbidden
+      end
+
       # PATCH/PUT /todos/1
       def update
         if @todo.update(todo_params)
@@ -83,6 +135,19 @@ module Api
           render json: @todo.errors, status: :unprocessable_entity
         end
       end
+
+      swagger_api :destroy do
+        summary "Deletes an existing Todo item"
+        param :header, :Authoraization, :string, :required, "To authorize the requests."
+        param :path, :user_id, :integer, :required, "User Id"
+        param :path, :trip_id, :integer, :required, "Trip Id"
+        param :path, :id, :integer, :require, "Todo Id"
+        response :ok
+        response :unauthorized
+        response :not_found
+        response :forbidden
+      end
+  
 
       # DELETE /todos/1
       def destroy

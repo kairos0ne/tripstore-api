@@ -4,6 +4,21 @@ module Api
       class ParksController < ApiController
         before_action :require_login
         before_action :set_todo, only: [:show, :update, :destroy]
+
+        swagger_controller :parks, "Parks Management"
+
+        swagger_api :index do
+          summary "Fetches all Parks for a given Destination. Uses Google Places Api"
+          notes "This lists all the parks that are nearby the destination"
+          param :header, :Authoraization, :string, :required, "To authorize the requests."
+          param :path, :user_id, :integer, :required, "User Id"
+          param :path, :trip_id, :integer, :required, "Trip Id"
+          param :path, :destination_id, :integer, :required, "Destination Id"
+          response :ok
+          response :unauthorized
+          response :forbidden, "User does not have permissions"
+        end
+  
   
         # GET /todos
         def index

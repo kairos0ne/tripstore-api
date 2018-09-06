@@ -1,0 +1,369 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "trips",
+  "apis": [
+    {
+      "path": "/api/v1/users/{user_id}/trips",
+      "operations": [
+        {
+          "summary": "Fetches all the trips for a given user",
+          "notes": "This lists all the trips for user. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips?page=1&per_page=10",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "page",
+              "type": "integer",
+              "description": "Page number",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "per_page",
+              "type": "integer",
+              "description": "Per page option",
+              "required": false
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Trips#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips",
+      "operations": [
+        {
+          "summary": "Creates a new Trip",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trip[start_date]",
+              "type": "timestamp",
+              "description": "Start Date",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trip[end_date]",
+              "type": "timestamp",
+              "description": "End Date",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trip[departure_airport_code]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trip[arrival_airport_code]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trip[departure_time]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trip[arrival_time]",
+              "type": "string",
+              "description": null,
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Trips#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single trip by ID",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": false
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Trip",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Trips#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{id}",
+      "operations": [
+        {
+          "summary": "Updates a Trip by ID",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trip[start_date]",
+              "type": "timestamp",
+              "description": "Start Date",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trip[end_date]",
+              "type": "timestamp",
+              "description": "End Date",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trip[departure_airport_code]",
+              "type": "string",
+              "description": "Depature Airport Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trip[arrival_airport_code]",
+              "type": "string",
+              "description": "Arrival Airport Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trip[departure_time]",
+              "type": "string",
+              "description": "Departure Time",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trip[arrival_time]",
+              "type": "string",
+              "description": "Arrival Time",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Trips#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/trips/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Trip item",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authoraization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Trips#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

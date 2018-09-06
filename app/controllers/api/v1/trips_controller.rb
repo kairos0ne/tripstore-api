@@ -5,6 +5,21 @@ module Api
     before_action :require_login
     before_action :set_trip, only: [:show, :update, :destroy]
 
+    swagger_controller :trips, "Trip Management"
+    
+    swagger_api :index do
+      summary "Fetches all the trips for a given user"
+      notes "This lists all the trips for user. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips?page=1&per_page=10"
+      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :query, :page, :integer, :optional, "Page number"
+      param :query, :per_page, :integer, :optional, "Per page option"
+      param :path, :user_id, :integer, :required, "User Id"
+      response :ok
+      response :unauthorized
+      response :unprocessable_entity
+      response :forbidden, "User does not have permissions"
+    end
+
     # GET /trips
     def index 
       # get the user from params 
@@ -44,10 +59,37 @@ module Api
       end
     end
 
+    swagger_api :show do
+      summary "Fetches a single trip by ID"
+      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :path, :user_id, :integer, :optional, "User Id"
+      param :path, :id, :integer, :optional, "Trip Id"
+      response :ok, "Success", :Trip
+      response :unauthorized
+      response :unprocessable_entity
+      response :not_found
+    end
+
     # GET /trips/1
     def show
       authorize! :read, @trip
       render json: @trip
+    end
+
+    swagger_api :create do
+      summary "Creates a new Trip"
+      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :path, :user_id, :integer, :required, "User Id"
+      param :form, "trip[start_date]", :timestamp, :required, "Start Date"
+      param :form, "trip[end_date]", :timestamp, :required, "End Date"
+      param :form, "trip[departure_airport_code]", :string, "Depature Airport Code"
+      param :form, "trip[arrival_airport_code]", :string, "Arrival Airport Code"
+      param :form, "trip[departure_time]", :string, "Departure Time"
+      param :form, "trip[arrival_time]", :string, "Arrival Time"
+      response :ok
+      response :unauthorized
+      response :forbidden
+      response :unprocessable_entity
     end
 
     # POST /trips
@@ -62,6 +104,24 @@ module Api
       end
     end
 
+
+    swagger_api :update do
+      summary "Updates a Trip by ID"
+      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :path, :user_id, :integer, :required, "User Id"
+      param :path, :id, :integer, :required, "Trip Id"
+      param :form, "trip[start_date]", :timestamp, :required, "Start Date"
+      param :form, "trip[end_date]", :timestamp, :required, "End Date"
+      param :form, "trip[departure_airport_code]", :string, :optional, "Depature Airport Code"
+      param :form, "trip[arrival_airport_code]", :string, :optional, "Arrival Airport Code"
+      param :form, "trip[departure_time]", :string, :optional,  "Departure Time"
+      param :form, "trip[arrival_time]", :string, :optional,  "Arrival Time"
+      response :ok
+      response :unauthorized
+      response :unprocessable_entity
+      response :forbidden
+    end
+
     # PATCH/PUT /trips/1
     def update
       authorize! :update, @trip
@@ -70,6 +130,17 @@ module Api
       else
         render json: @trip.errors, status: :unprocessable_entity
       end
+    end
+
+    swagger_api :destroy do
+      summary "Deletes an existing Trip item"
+      param :header, :Authoraization, :string, :required, "To authorize the requests."
+      param :path, :user_id, :integer, :required, "User Id"
+      param :path, :id, :integer, :required, "Trip Id"
+      response :ok
+      response :unauthorized
+      response :not_found
+      response :forbidden
     end
 
     # DELETE /trips/1
