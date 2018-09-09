@@ -1,20 +1,28 @@
-# spec/controllers/api/v1/trips_controller_spec.rb
+<<<<<<< HEAD
+# spec/controllers/api/v1/bookings_controller_spec.rb
+=======
+# spec/controllers/api/v1/booking_controller_spec.rb
+>>>>>>> develop
 
 require 'rails_helper'
 
 RSpec.describe Api::V1::BookingsController do
 
     before(:each) do
-        user = FactoryBot.create (:user, admin: true)
+        user = FactoryBot.create(:admin, token_created_at: Time.zone.now.to_datetime)
         booking = FactoryBot.create(:booking, user_id: user.id)
         request.headers["Authorization"] = "Token " + user.token  
     end
 
-  # Test if all users are returned on the index method 
+<<<<<<< HEAD
+  # Test if all bookings are returned on the index method 
+=======
+  # Test is all bookings are returned 
+>>>>>>> develop
   describe "GET #index" do
 
     before do
-        user = FactoryBot.create(:user, admin: true, token_created_at: Time.zone.now.to_datetime)
+        user = FactoryBot.create(:admin, token_created_at: Time.zone.now.to_datetime)
         request.headers["Authorization"] = "Token " + user.token 
         get :index, params: { user_id: user.id }
     end
@@ -30,11 +38,15 @@ RSpec.describe Api::V1::BookingsController do
 
   end
 
-  # Test that the trip is returned on the show method 
+<<<<<<< HEAD
+  # Test that the booking is returned on the show method 
+=======
+  # Test that the booking is returned 
+>>>>>>> develop
   describe "GET #show" do
 
     before do
-        user = FactoryBot.create(:user, token_created_at: Time.zone.now.to_datetime)
+        user = FactoryBot.create(:admin, token_created_at: Time.zone.now.to_datetime)
         booking = FactoryBot.create(:booking, user_id: user.id)
         request.headers["Authorization"] = "Token " + user.token 
         get :show, params: { user_id: user.id, id: booking.id  }
@@ -51,7 +63,11 @@ RSpec.describe Api::V1::BookingsController do
 
   end
 
-  # Create a Trip in the db 
+<<<<<<< HEAD
+  # Create a Booking in the db 
+=======
+  # Create a booking in the DB
+>>>>>>> develop
   describe "Booking #create" do
 
     it 'creates a new Booking' do
@@ -63,7 +79,11 @@ RSpec.describe Api::V1::BookingsController do
     end
 
   end
-  # Delete a Trip 
+<<<<<<< HEAD
+  # Delete a Booking 
+=======
+  # Delete a Booking
+>>>>>>> develop
   describe "Booking #destroy" do
 
     it 'Deletes a Booking' do

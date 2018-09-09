@@ -1,9 +1,9 @@
 # This will guess the User class
 FactoryBot.define do
     factory :parking, class: Parking do
-      ArrivalDate {"2018-09-07"}
-      ArrivalTime {"20:31:06"}
-      DepartDate {"2018-09-07"}
+      ArrivalDate { "2018-09-07" } 
+      ArrivalTime { "20:31:06" }
+      DepartDate { "2018-09-07" }
       DepartTime { "20:31:06"}
       NumberOfPax { 1 }
       Title  { "MyString" }
@@ -12,7 +12,6 @@ FactoryBot.define do
       Email { "MyString" }
       Waiver { "MyString" }
       Remarks { "MyString" }
-      user nil
     end
     
     

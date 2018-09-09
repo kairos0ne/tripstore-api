@@ -9,7 +9,7 @@ RSpec.describe Api::V1::TodosController do
         request.headers["Authorization"] = "Token " + user.token  
     end
 
-  # Test if all users are returned on the index method 
+  # Test if all Todos are returned on the index method 
   describe "GET #index" do
 
     before do
@@ -53,7 +53,7 @@ RSpec.describe Api::V1::TodosController do
 
   end
 
-  # Create a Trip in the db 
+  # Create a Todo in the db 
   describe "Trip #create" do
 
     it 'creates a new Todo' do
@@ -66,7 +66,7 @@ RSpec.describe Api::V1::TodosController do
     end
 
   end
-  # Delete a Trip 
+  # Delete a Todo 
   describe "Trip #destroy" do
 
     it 'Deletes a Trip' do

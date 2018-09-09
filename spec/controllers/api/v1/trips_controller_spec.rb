@@ -10,7 +10,7 @@ RSpec.describe Api::V1::TripsController do
         request.headers["Authorization"] = "Token " + user.token  
     end
 
-  # Test if all users are returned on the index method 
+  # Test if all trips are returned on the index method 
   describe "GET #index" do
 
     before do

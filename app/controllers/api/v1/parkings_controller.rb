@@ -215,11 +215,6 @@ module Api
           params.require(:parking).permit(:ArrivalDate, :ArrivalTime, :DepartDate, :DepartTime, :NumberOfPax, :Title, :Initial, :Surname, :Email, :Waiver, :Remarks, :ABTANumber, :user_id)
         end
 
-        def strip_dates(parkings)
-          while parkings.ArrivalTime.present?
-           parkings.push(read_attribute(:ArrivalTime).strftime("%H:%M:%S")) 
-          end 
-        end 
     end
   end
 end
