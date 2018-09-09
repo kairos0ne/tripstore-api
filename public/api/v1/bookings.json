@@ -8,8 +8,8 @@
       "path": "/api/v1/all_bookings",
       "operations": [
         {
-          "summary": "Fetches all bookings for a given user",
-          "notes": "This lists all the bookings for a user",
+          "summary": "Fetches all bookings. Admin only",
+          "notes": "This lists all the bookings",
           "parameters": [
             {
               "paramType": "header",

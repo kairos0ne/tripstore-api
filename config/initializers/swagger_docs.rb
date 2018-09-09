@@ -5,7 +5,7 @@ Swagger::Docs::Config.register_apis({
       :api_file_path => "public/",
       # base path url of our application
       # while using production mode, point it to production url
-      :base_path => "http://localhost:3000",
+      :base_path => "http://178.62.4.128:3000",
       # setting this option true tells swagger to clean all files generated in api_file_path directory before any files are generated
       :clean_directory => true,
       # As we are using Rails-API, our ApplicationController inherits ActionController::API instead of ActionController::Base

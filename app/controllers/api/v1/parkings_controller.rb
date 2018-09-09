@@ -59,8 +59,8 @@ module Api
       end
 
       swagger_api :all_parkings do
-        summary "Fetches all parkings for a given user. Only admins have access to this endpoint"
-        notes "This lists all the parkings for a user"
+        summary "Fetches all parkings. Only admins have access to this endpoint"
+        notes "This lists all the parkings"
         param :header, :Authorization, :string, :required, "To authorize the requests."
         param :query, :page, :integer, :optional, "Page number"
         param :query, :per_page, :integer, :optional, "Per page option"

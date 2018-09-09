@@ -57,8 +57,8 @@ module Api
       end
 
       swagger_api :all_bookings do
-        summary "Fetches all bookings for a given user"
-        notes "This lists all the bookings for a user"
+        summary "Fetches all bookings. Admin only"
+        notes "This lists all the bookings"
         param :header, :Authorization, :string, :required, "To authorize the requests."
         param :query, :page, :integer, :optional, "Page number"
         param :query, :per_page, :integer, :optional, "Per page option"

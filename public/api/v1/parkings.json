@@ -8,8 +8,8 @@
       "path": "/api/v1/all_parkings",
       "operations": [
         {
-          "summary": "Fetches all parkings for a given user. Only admins have access to this endpoint",
-          "notes": "This lists all the parkings for a user",
+          "summary": "Fetches all parkings. Only admins have access to this endpoint",
+          "notes": "This lists all the parkings",
           "parameters": [
             {
               "paramType": "header",
