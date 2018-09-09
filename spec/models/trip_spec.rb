@@ -18,10 +18,4 @@ RSpec.describe Trip, type: :model do
     trip.end_date = nil 
     expect(trip).to_not be_valid
   end
-  it "is not valid without a destination" do
-    user = FactoryBot.create(:user)
-    trip = FactoryBot.create(:trip, user_id: user.id)
-    trip.destination = nil 
-    expect(trip).to_not be_valid
-  end
 end

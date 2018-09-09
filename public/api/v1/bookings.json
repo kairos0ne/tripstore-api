@@ -1,0 +1,737 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "bookings",
+  "apis": [
+    {
+      "path": "/api/v1/all_bookings",
+      "operations": [
+        {
+          "summary": "Fetches all bookings for a given user",
+          "notes": "This lists all the bookings for a user",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "page",
+              "type": "integer",
+              "description": "Page number",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "per_page",
+              "type": "integer",
+              "description": "Per page option",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Bookings#all_bookings",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/bookings",
+      "operations": [
+        {
+          "summary": "Fetches all bookings for a given user",
+          "notes": "This lists all the bookings for a user",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "page",
+              "type": "integer",
+              "description": "Page number",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "per_page",
+              "type": "integer",
+              "description": "Per page option",
+              "required": false
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Bookings#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/bookings",
+      "operations": [
+        {
+          "summary": "Creates a booking for a user",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "booking[ABTANumber]",
+              "type": "string",
+              "description": "ABTNumber",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[token]",
+              "type": "string",
+              "description": "token",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[ArrivalDate]",
+              "type": "date",
+              "description": "Arrival Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Nights]",
+              "type": "integer",
+              "description": "Nights",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[RoomCode]",
+              "type": "string",
+              "description": "Room Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Adults]",
+              "type": "integer",
+              "description": "Adults Staying",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Children]",
+              "type": "integer",
+              "description": "Children Staying",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[ParkingDays]",
+              "type": "integer",
+              "description": "Parking Days",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Title]",
+              "type": "string",
+              "description": "Title",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Initial]",
+              "type": "string",
+              "description": "Initial",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Surname]",
+              "type": "string",
+              "description": "Surname",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Address]",
+              "type": "string",
+              "description": "Address",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Town]",
+              "type": "string",
+              "description": "Town",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[County]",
+              "type": "string",
+              "description": "County",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[PostCode]",
+              "type": "string",
+              "description": "Post Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[DayPhone",
+              "type": "integer",
+              "description": "Day Phone",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Email]",
+              "type": "string",
+              "description": "Email Address",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[CustomerRef]",
+              "type": "string",
+              "description": "Customer Reference",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Remarks]",
+              "type": "string",
+              "description": "Customer Remarks",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Waiver]",
+              "type": "string",
+              "description": "Customer Waiver",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[DataProtection]",
+              "type": "string",
+              "description": "Data Protection",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[PriceCheckFlag",
+              "type": "string",
+              "description": "Price Checked Flagged",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[PriceCheckPrice]",
+              "type": "float",
+              "description": "Price",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[System]",
+              "type": "string",
+              "description": "System",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[lang]",
+              "type": "string",
+              "description": "Language",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[SecondRoomType]",
+              "type": "string",
+              "description": "Second Room Type",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[SecondRoomCode]",
+              "type": "string",
+              "description": "Second Room Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[SecondRoomAdults]",
+              "type": "integer",
+              "description": "Second Room Adults Number",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[SecondRoomChildren]",
+              "type": "integer",
+              "description": "Second Room Children Number",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Bookings#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/bookings/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single booking by ID",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Booking Id",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Booking",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Bookings#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/bookings/{id}",
+      "operations": [
+        {
+          "summary": "Updates a booking for a user",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Booking Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "booking[ABTANumber]",
+              "type": "string",
+              "description": "ABTNumber",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[token]",
+              "type": "string",
+              "description": "token",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[ArrivalDate]",
+              "type": "date",
+              "description": "Arrival Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Nights]",
+              "type": "integer",
+              "description": "Nights",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[RoomCode]",
+              "type": "string",
+              "description": "Room Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Adults]",
+              "type": "integer",
+              "description": "Adults Staying",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Children]",
+              "type": "integer",
+              "description": "Children Staying",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[ParkingDays]",
+              "type": "integer",
+              "description": "Parking Days",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Title]",
+              "type": "string",
+              "description": "Title",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Initial]",
+              "type": "string",
+              "description": "Initial",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Surname]",
+              "type": "string",
+              "description": "Surname",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Address]",
+              "type": "string",
+              "description": "Address",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Town]",
+              "type": "string",
+              "description": "Town",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[County]",
+              "type": "string",
+              "description": "County",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[PostCode]",
+              "type": "string",
+              "description": "Post Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[DayPhone",
+              "type": "integer",
+              "description": "Day Phone",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Email]",
+              "type": "string",
+              "description": "Email Address",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[CustomerRef]",
+              "type": "string",
+              "description": "Customer Reference",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Remarks]",
+              "type": "string",
+              "description": "Customer Remarks",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[Waiver]",
+              "type": "string",
+              "description": "Customer Waiver",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[DataProtection]",
+              "type": "string",
+              "description": "Data Protection",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[PriceCheckFlag",
+              "type": "string",
+              "description": "Price Checked Flagged",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[PriceCheckPrice]",
+              "type": "float",
+              "description": "Price",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[System]",
+              "type": "string",
+              "description": "System",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[lang]",
+              "type": "string",
+              "description": "Language",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[SecondRoomType]",
+              "type": "string",
+              "description": "Second Room Type",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[SecondRoomCode]",
+              "type": "string",
+              "description": "Second Room Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[SecondRoomAdults]",
+              "type": "integer",
+              "description": "Second Room Adults Number",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[SecondRoomChildren]",
+              "type": "integer",
+              "description": "Second Room Children Number",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Bookings#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/bookings/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Booking item",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Booking Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Bookings#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

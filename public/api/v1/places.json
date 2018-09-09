@@ -1,0 +1,81 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "places",
+  "apis": [
+    {
+      "path": "/api/v1/users/{user_id}/trips/{trip_id}/destinations/{destination_id}/places",
+      "operations": [
+        {
+          "summary": "Fetches all Places for a given Latitude and longitude. Uses Google Places Api",
+          "notes": "This lists all the places that are nearby the destination",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "trip_id",
+              "type": "integer",
+              "description": "Trip Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "destination_id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "lat",
+              "type": "integer",
+              "description": "Latitude",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "lon",
+              "type": "integer",
+              "description": "Longitude",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Places#index",
+          "method": "get"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

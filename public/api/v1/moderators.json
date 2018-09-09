@@ -1,0 +1,93 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "moderators",
+  "apis": [
+    {
+      "path": "/api/v1/moderator",
+      "operations": [
+        {
+          "summary": "Creates a Admin user",
+          "notes": "Only admins have access to this endpoint",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[name]",
+              "type": "string",
+              "description": "User Name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "user[email]",
+              "type": "string",
+              "description": "User Email",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[password]",
+              "type": "string",
+              "description": "User Password",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[password_confirmation]",
+              "type": "string",
+              "description": "Password Confirmation",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[admin]",
+              "type": "boolean",
+              "description": "Admin Role (default false)",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "user[member]",
+              "type": "beelean",
+              "description": "Member Role (default true)",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Moderators#create",
+          "method": "post"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

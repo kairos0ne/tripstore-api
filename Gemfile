@@ -32,7 +32,9 @@ gem 'faker'
 
 gem 'will_paginate'
 gem 'api-pagination'
-
+gem 'google_places'
+gem 'figaro'
+gem 'swagger-docs'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
