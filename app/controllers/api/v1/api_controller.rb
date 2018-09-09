@@ -15,12 +15,6 @@ module Api
         render :json => {:error => "You don't have permissions to visit this endpoint"}.to_json, :status => :forbidden
       end
 
-      def time_strings(response)
-        while response.ArrivalTime.present?
-          read_attribute(:ArrivalTime).strftime("%H:%M:%S")
-        end
-      end
-
       protected
     
       def render_unauthorized(message)

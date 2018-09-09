@@ -63,5 +63,5 @@ run `rails db:seed`to seed data to the database
 
 run `rails server`to run the server 
 
-# Available routes - full API docs can be found here: https://documenter.getpostman.com/view/1180213/RWToQHut 
+full API docs can be found at this location when running the app. http://localhost:3000/api
 
