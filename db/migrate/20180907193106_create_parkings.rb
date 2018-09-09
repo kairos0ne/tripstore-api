@@ -13,6 +13,8 @@ class CreateParkings < ActiveRecord::Migration[5.2]
       t.string :Waiver
       t.string :Remarks
       t.string :ABTANumber
+      t.boolean :active, :default => true
+      t.boolean :success, :default => false 
       t.references :user, foreign_key: true
 
       t.timestamps

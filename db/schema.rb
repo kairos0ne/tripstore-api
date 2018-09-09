@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2018_09_07_193106) do
     t.string "Waiver"
     t.string "Remarks"
     t.string "ABTANumber"
+    t.boolean "active", default: true
+    t.boolean "success", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

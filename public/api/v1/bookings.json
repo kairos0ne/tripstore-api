@@ -240,7 +240,7 @@
             },
             {
               "paramType": "form",
-              "name": "booking[DayPhone",
+              "name": "booking[DayPhone]",
               "type": "integer",
               "description": "Day Phone",
               "required": false
@@ -282,7 +282,7 @@
             },
             {
               "paramType": "form",
-              "name": "booking[PriceCheckFlag",
+              "name": "booking[PriceCheckFlag]",
               "type": "string",
               "description": "Price Checked Flagged",
               "required": false

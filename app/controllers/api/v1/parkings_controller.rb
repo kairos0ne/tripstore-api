@@ -212,7 +212,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def parking_params
-          params.require(:parking).permit(:ArrivalDate, :ArrivalTime, :DepartDate, :DepartTime, :NumberOfPax, :Title, :Initial, :Surname, :Email, :Waiver, :Remarks, :ABTANumber, :user_id)
+          params.require(:parking).permit(:ArrivalDate, :ArrivalTime, :DepartDate, :DepartTime, :NumberOfPax, :Title, :Initial, :Surname, :Email, :Waiver, :Remarks, :ABTANumber, :success, :active, :user_id)
         end
 
     end
