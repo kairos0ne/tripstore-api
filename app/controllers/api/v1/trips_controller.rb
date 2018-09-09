@@ -28,7 +28,7 @@ module Api
       if current_user.admin == true
         @trips = user.trip.all
         # Check if the the params contains pagination 
-        if params[:page]
+        if params[:page] && params[:per_page] 
           
           paginate json: @trips, meta: {
             total: @trips.count,
@@ -44,7 +44,7 @@ module Api
        # Check is the user is current user if not render unathorised 
       elsif current_user.id == user.id
         @trips = user.trip.all
-        if params[:page]
+        if params[:page] && params[:per_page] 
           paginate json: @trips, meta: {
             total: @trips.count,
             per_page: params[:per_page].to_i, 

@@ -1,0 +1,499 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "parkings",
+  "apis": [
+    {
+      "path": "/api/v1/all_parkings",
+      "operations": [
+        {
+          "summary": "Fetches all parkings for a given user. Only admins have access to this endpoint",
+          "notes": "This lists all the parkings for a user",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "page",
+              "type": "integer",
+              "description": "Page number",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "per_page",
+              "type": "integer",
+              "description": "Per page option",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Parkings#all_parkings",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/parkings",
+      "operations": [
+        {
+          "summary": "Fetches all parkings for a given user",
+          "notes": "This lists all the parkings for a user",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "page",
+              "type": "integer",
+              "description": "Page number",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "per_page",
+              "type": "integer",
+              "description": "Per page option",
+              "required": false
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            }
+          ],
+          "nickname": "Api::V1::Parkings#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/parkings",
+      "operations": [
+        {
+          "summary": "Creates a booking for a user",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "parking[ABTANumber]",
+              "type": "string",
+              "description": "ABTNumber",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[ArrivalDate]",
+              "type": "date",
+              "description": "Arrival Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[ArrivalTime]",
+              "type": "time",
+              "description": "Arrival Time",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[DepartDate]",
+              "type": "date",
+              "description": "Departure Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[DepartTime]",
+              "type": "time",
+              "description": "Departure Time",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[NumberOfPax]",
+              "type": "integer",
+              "description": "Number of Pax",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Title]",
+              "type": "string",
+              "description": "Title",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Initial]",
+              "type": "string",
+              "description": "Initial",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Surname]",
+              "type": "string",
+              "description": "Surname",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Email]",
+              "type": "string",
+              "description": "Email",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Waiver]",
+              "type": "string",
+              "description": "Customer Waiver",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Remarks]",
+              "type": "string",
+              "description": "Remarks",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Parkings#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/parkings/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single parking by ID",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Parking Id",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Booking",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "User does not have permissions"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Parkings#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/parkings/{id}",
+      "operations": [
+        {
+          "summary": "Updates a booking for a user",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Parking Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "parking[ABTANumber]",
+              "type": "string",
+              "description": "ABTNumber",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[ArrivalDate]",
+              "type": "date",
+              "description": "Arrival Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[ArrivalTime]",
+              "type": "time",
+              "description": "Arrival Time",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[DepartDate]",
+              "type": "date",
+              "description": "Departure Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[DepartTime]",
+              "type": "time",
+              "description": "Departure Time",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[NumberOfPax]",
+              "type": "integer",
+              "description": "Number of Pax",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Title]",
+              "type": "string",
+              "description": "Title",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Initial]",
+              "type": "string",
+              "description": "Initial",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Surname]",
+              "type": "string",
+              "description": "Surname",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Email]",
+              "type": "string",
+              "description": "Email",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Waiver]",
+              "type": "string",
+              "description": "Customer Waiver",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "parking[Remarks]",
+              "type": "string",
+              "description": "Remarks",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Api::V1::Parkings#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/users/{user_id}/parkings/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Parking item",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "To authorize the requests.",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "user_id",
+              "type": "integer",
+              "description": "User Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Parking Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Parkings#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

@@ -95,6 +95,62 @@
               "type": "string",
               "description": "Todo Description",
               "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[formatted_address",
+              "type": "string",
+              "description": "Address",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[lat]",
+              "type": "decimal",
+              "description": "Latitude",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[lng]",
+              "type": "decimal",
+              "description": "Longitude",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[post_code]",
+              "type": "string",
+              "description": "Post Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[city]",
+              "type": "string",
+              "description": "City",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[country]",
+              "type": "string",
+              "description": "Country",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[rating]",
+              "type": "string",
+              "description": "Rating",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[website]",
+              "type": "string",
+              "description": "Website Address",
+              "required": false
             }
           ],
           "responseMessages": [
@@ -209,17 +265,80 @@
               "required": true
             },
             {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            },
+            {
               "paramType": "form",
               "name": "destination[title]",
               "type": "string",
               "description": "Todo Title",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "destination[description]",
               "type": "string",
               "description": "Todo Description",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[formatted_address",
+              "type": "string",
+              "description": "Address",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[lat]",
+              "type": "decimal",
+              "description": "Latitude",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[lng]",
+              "type": "decimal",
+              "description": "Longitude",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[post_code]",
+              "type": "string",
+              "description": "Post Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[city]",
+              "type": "string",
+              "description": "City",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[country]",
+              "type": "string",
+              "description": "Country",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[rating]",
+              "type": "string",
+              "description": "Rating",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "destination[website]",
+              "type": "string",
+              "description": "Website Address",
               "required": false
             }
           ],

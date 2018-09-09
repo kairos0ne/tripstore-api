@@ -10,18 +10,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_01_105514) do
+ActiveRecord::Schema.define(version: 2018_09_07_193106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.string "ABTANumber"
+    t.string "token"
+    t.date "ArrivalDate"
+    t.integer "Nights"
+    t.string "RoomCode"
+    t.integer "Adults"
+    t.integer "Children"
+    t.integer "ParkingDays"
+    t.string "Title"
+    t.string "Initial"
+    t.string "Surname"
+    t.string "Address"
+    t.string "Town"
+    t.string "County"
+    t.string "PostCode"
+    t.integer "DayPhone"
+    t.string "Email"
+    t.string "CustomerRef"
+    t.text "Remarks"
+    t.boolean "Waiver"
+    t.string "DataProtection"
+    t.string "PriceCheckFlag"
+    t.float "PriceCheckPrice"
+    t.string "System"
+    t.string "lang"
+    t.string "SecondRoomType"
+    t.string "SecondRoomCode"
+    t.integer "SecondRoomAdults"
+    t.integer "SecondRoomChildren"
+    t.string "booking_type"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "destinations", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.string "formatted_address"
+    t.decimal "lat", precision: 15, scale: 13
+    t.decimal "lng", precision: 15, scale: 13
+    t.string "post_code"
+    t.string "city"
+    t.string "country"
+    t.string "rating"
+    t.string "website"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_destinations_on_trip_id"
+  end
+
+  create_table "parkings", force: :cascade do |t|
+    t.date "ArrivalDate"
+    t.time "ArrivalTime"
+    t.date "DepartDate"
+    t.time "DepartTime"
+    t.integer "NumberOfPax"
+    t.string "Title"
+    t.string "Initial"
+    t.string "Surname"
+    t.string "Email"
+    t.string "Waiver"
+    t.string "Remarks"
+    t.string "ABTANumber"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parkings_on_user_id"
   end
 
   create_table "todos", force: :cascade do |t|
@@ -59,7 +123,9 @@ ActiveRecord::Schema.define(version: 2018_09_01_105514) do
     t.index ["token", "token_created_at"], name: "index_users_on_token_and_token_created_at"
   end
 
+  add_foreign_key "bookings", "users"
   add_foreign_key "destinations", "trips"
+  add_foreign_key "parkings", "users"
   add_foreign_key "todos", "trips"
   add_foreign_key "trips", "users"
 end

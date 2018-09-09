@@ -1,6 +1,7 @@
 module Api
   module V1
     class DestinationsController < ApiController
+      before_action :require_login
       before_action :set_destination, only: [:show, :update, :destroy]
 
       swagger_controller :destinations, "Destination Management"
@@ -55,6 +56,7 @@ module Api
         end
       end
 
+      # POST /destinations
       swagger_api :create do
         summary "Creates a new Destination"
         param :header, :Authoraization, :string, :required, "To authorize the requests."
@@ -62,13 +64,20 @@ module Api
         param :path, :trip_id, :integer, :required, "Trip Id"
         param :form, "destination[title]", :string, :required, "Todo Title"
         param :form, "destination[description]", :string, :optional, "Todo Description"
+        param :form, "destination[formatted_address", :string, :optional, "Address"
+        param :form, "destination[lat]", :decimal, :optional, "Latitude"
+        param :form, "destination[lng]", :decimal, :optional, "Longitude"
+        param :form, "destination[post_code]", :string, :optional, "Post Code"
+        param :form, "destination[city]", :string, :optional, "City"
+        param :form, "destination[country]", :string, :optional, "Country"
+        param :form, "destination[rating]", :string, :optional, "Rating"
+        param :form, "destination[website]", :string, :optional, "Website Address"
         response :ok
         response :unauthorized
         response :unprocessable_entity
         response :forbidden
       end
 
-      # POST /destinations
       def create
         trip = Trip.find(params[:trip_id])
         @destination = Destination.new(destination_params)
@@ -81,22 +90,29 @@ module Api
         end
       end
 
-
+      # PATCH/PUT /destinations/1
       swagger_api :update do
         summary "Updates a Destination"
         param :header, :Authoraization, :string, :required, "To authorize the requests."
         param :path, :user_id, :integer, :required, "User Id"
         param :path, :trip_id, :integer, :required, "Trip Id"
-        param :form, "destination[title]", :string, :optional, "Todo Title"
+        param :path, :id, :integer, :required, "Destination Id"
+        param :form, "destination[title]", :string, :required, "Todo Title"
         param :form, "destination[description]", :string, :optional, "Todo Description"
+        param :form, "destination[formatted_address", :string, :optional, "Address"
+        param :form, "destination[lat]", :decimal, :optional, "Latitude"
+        param :form, "destination[lng]", :decimal, :optional, "Longitude"
+        param :form, "destination[post_code]", :string, :optional, "Post Code"
+        param :form, "destination[city]", :string, :optional, "City"
+        param :form, "destination[country]", :string, :optional, "Country"
+        param :form, "destination[rating]", :string, :optional, "Rating"
+        param :form, "destination[website]", :string, :optional, "Website Address"
         response :ok
         response :unauthorized
         response :unprocessable_entity
         response :forbidden
       end
 
-
-      # PATCH/PUT /destinations/1
       def update
         if @destination.update(destination_params)
           render json: @destination
@@ -130,7 +146,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def destination_params
-          params.require(:destination).permit(:title, :description, :trip_id)
+          params.require(:destination).permit(:title, :description, :trip_id, :website, :rating, :country, :city, :post_code, :lng, :lat, :formatted_address)
         end
     end
   end

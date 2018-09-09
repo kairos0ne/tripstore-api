@@ -4,6 +4,14 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
+      "path": "/api/v1/bookings.{format}",
+      "description": "Booking Management"
+    },
+    {
+      "path": "/api/v1/parkings.{format}",
+      "description": "Parking Management"
+    },
+    {
       "path": "/api/v1/museums.{format}",
       "description": "Museums Management"
     },
@@ -25,6 +33,10 @@
     },
     {
       "path": "/api/v1/places.{format}",
+      "description": "Places Management"
+    },
+    {
+      "path": "/api/v1/info.{format}",
       "description": "Places Management"
     },
     {
