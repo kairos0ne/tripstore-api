@@ -1,10 +1,10 @@
-# spec/controllers/api/v1/places_controller_spec.rb
+# spec/controllers/api/v1/museums_controller_spec.rb
 
 require 'rails_helper'
 
 RSpec.describe Api::V1::MuseumsController do
 
-  # Test if all users are returned on the index method 
+  # Test if all museums are returned on the index method 
   describe "GET #index" do
 
     before do

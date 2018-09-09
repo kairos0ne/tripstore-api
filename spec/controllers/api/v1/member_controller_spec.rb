@@ -1,4 +1,4 @@
-# spec/controllers/api/v1/admin_controller_spec.rb
+# spec/controllers/api/v1/member_controller_spec.rb
 
 require 'rails_helper'
 

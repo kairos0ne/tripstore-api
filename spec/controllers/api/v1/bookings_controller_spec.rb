@@ -1,4 +1,4 @@
-# spec/controllers/api/v1/trips_controller_spec.rb
+# spec/controllers/api/v1/bookings_controller_spec.rb
 
 require 'rails_helper'
 
@@ -10,7 +10,7 @@ RSpec.describe Api::V1::BookingsController do
         request.headers["Authorization"] = "Token " + user.token  
     end
 
-  # Test if all users are returned on the index method 
+  # Test if all bookings are returned on the index method 
   describe "GET #index" do
 
     before do
@@ -30,7 +30,7 @@ RSpec.describe Api::V1::BookingsController do
 
   end
 
-  # Test that the trip is returned on the show method 
+  # Test that the booking is returned on the show method 
   describe "GET #show" do
 
     before do
@@ -51,7 +51,7 @@ RSpec.describe Api::V1::BookingsController do
 
   end
 
-  # Create a Trip in the db 
+  # Create a Booking in the db 
   describe "Booking #create" do
 
     it 'creates a new Booking' do
@@ -63,7 +63,7 @@ RSpec.describe Api::V1::BookingsController do
     end
 
   end
-  # Delete a Trip 
+  # Delete a Booking 
   describe "Booking #destroy" do
 
     it 'Deletes a Booking' do

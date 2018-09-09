@@ -1,4 +1,4 @@
-# spec/controllers/api/v1/trips_controller_spec.rb
+# spec/controllers/api/v1/destinations_controller_spec.rb
 
 require 'rails_helper'
 
@@ -11,7 +11,7 @@ RSpec.describe Api::V1::DestinationsController do
         request.headers["Authorization"] = "Token " + user.token  
     end
 
-  # Test if all users are returned on the index method 
+  # Test if all destinations are returned on the index method 
   describe "GET #index" do
 
     before do
@@ -33,7 +33,7 @@ RSpec.describe Api::V1::DestinationsController do
 
   end
 
-  # Test that the trip is returned on the show method 
+  # Test that the destination is returned on the show method 
   describe "GET #show" do
 
     before do
@@ -55,7 +55,7 @@ RSpec.describe Api::V1::DestinationsController do
 
   end
 
-  # Create a Trip in the db 
+  # Create a Destination in the db 
   describe "Trip #create" do
 
     it 'creates a new Destination' do
@@ -68,7 +68,7 @@ RSpec.describe Api::V1::DestinationsController do
     end
 
   end
-  # Delete a Trip 
+  # Delete a Destination 
   describe "Destination #destroy" do
 
     it 'Deletes a Destination' do

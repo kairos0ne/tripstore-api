@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::PlacesController do
 
-  # Test if all users are returned on the index method 
+  # Test if all places are returned on the index method 
   describe "GET #index" do
 
     before do

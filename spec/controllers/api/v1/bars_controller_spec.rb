@@ -1,10 +1,10 @@
-# spec/controllers/api/v1/places_controller_spec.rb
+# spec/controllers/api/v1/bars_controller_spec.rb
 
 require 'rails_helper'
 
 RSpec.describe Api::V1::BarsController do
 
-  # Test if all users are returned on the index method 
+  # Test if all bars are returned on the index method 
   describe "GET #index" do
 
     before do

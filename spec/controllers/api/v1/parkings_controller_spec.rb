@@ -10,7 +10,7 @@ RSpec.describe Api::V1::ParkingsController do
         request.headers["Authorization"] = "Token " + user.token  
     end
 
-  # Test is all parkings are returned 
+  # Test that all parkings are returned on the index method 
   describe "GET #index" do
 
     before do
