@@ -15,7 +15,7 @@ module Api
           param :path, :trip_id, :integer, :required, "Trip Id"
           param :path, :destination_id, :integer, :required, "Destination Id"
           param :query, :lat, :integer, :required, "Latitude"
-          param :query, :lon, :integer, :required, "Longitude"
+          param :query, :lng, :integer, :required, "Longitude"
           response :ok
           response :unauthorized
           response :forbidden, "User does not have permissions"
@@ -26,10 +26,10 @@ module Api
           # Get all the google results for a given lat and lng.
           user = User.find(params[:user_id])
             if current_user.admin == true
-                if params[:lat] && params[:lon]
+                if params[:lat] && params[:lng]
                     @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
                     destination = Destination.find(params[:destination_id])
-                    @places = @client.spots(params[:lat], params[:lon], :types => ['establishment', 'restaurant', 'food', 'clubs'])
+                    @places = @client.spots(params[:lat], params[:lng], :types => ['establishment', 'restaurant', 'food', 'clubs'])
                     render json: @places, :root => 'places' 
                 else 
                     render :json => {:error => "No longitude and latitude supplied"}.to_json, :status => :forbidden
