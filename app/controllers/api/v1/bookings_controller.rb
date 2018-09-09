@@ -148,6 +148,8 @@ module Api
         param :form, "booking[SecondRoomCode]", :string, :optional, "Second Room Code"
         param :form, "booking[SecondRoomAdults]", :integer, :optional, "Second Room Adults Number"
         param :form, "booking[SecondRoomChildren]", :integer, :optional, "Second Room Children Number"
+        param :form, "booking[success]", :boolean, :optional, "Success Status"
+        param :form, "booking[active]", :boolean, :optional, "Active Status"
         response :ok
         response :unauthorized
         response :unprocessable_entity
@@ -162,6 +164,7 @@ module Api
         @booking = Booking.new(booking_params)
         authorize! :create, @booking
         @booking.user_id = user.id
+
         if @booking.save
           render json: @booking, status: :created
         else
@@ -189,13 +192,13 @@ module Api
         param :form, "booking[Town]", :string, :optional, "Town"
         param :form, "booking[County]", :string, :optional, "County"
         param :form, "booking[PostCode]", :string, :optional, "Post Code"
-        param :form, "booking[DayPhone", :integer, :optional, "Day Phone"
+        param :form, "booking[DayPhone]", :integer, :optional, "Day Phone"
         param :form, "booking[Email]", :string, :optional, "Email Address"
         param :form, "booking[CustomerRef]", :string, :optional, "Customer Reference"
         param :form, "booking[Remarks]", :string, :optional, "Customer Remarks"
         param :form, "booking[Waiver]", :string, :optional, "Customer Waiver"
         param :form, "booking[DataProtection]", :string, :optional, "Data Protection"
-        param :form, "booking[PriceCheckFlag", :string, :optional, "Price Checked Flagged"
+        param :form, "booking[PriceCheckFlag]", :string, :optional, "Price Checked Flagged"
         param :form, "booking[PriceCheckPrice]", :float, :optional, "Price"
         param :form, "booking[System]", :string, :optional, "System"
         param :form, "booking[lang]", :string, :optional, "Language"
@@ -203,6 +206,8 @@ module Api
         param :form, "booking[SecondRoomCode]", :string, :optional, "Second Room Code"
         param :form, "booking[SecondRoomAdults]", :integer, :optional, "Second Room Adults Number"
         param :form, "booking[SecondRoomChildren]", :integer, :optional, "Second Room Children Number"
+        param :form, "booking[success]", :boolean, :optional, "Success Status"
+        param :form, "booking[active]", :boolean, :optional, "Active Status"
         response :ok
         response :unauthorized
         response :unprocessable_entity
@@ -246,7 +251,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def booking_params
-          params.require(:booking).permit(:ABTANumber, :token, :ArrivalDate, :Nights, :RoomCode, :Adults, :Children, :ParkingDays, :Title, :Initial, :Surname, :Address, :Town, :County, :PostCode, :DayPhone, :Email, :CustomerRef, :Remarks, :Waiver, :DataProtection, :PriceCheckFlag, :PriceCheckPrice, :System, :lang, :user_id, :SecondRoomType, :SecondRoomCode, :SecondRoomAdults, :SecondRoomChildren)
+          params.require(:booking).permit(:ABTANumber, :token, :ArrivalDate, :Nights, :RoomCode, :Adults, :Children, :ParkingDays, :Title, :Initial, :Surname, :Address, :Town, :County, :PostCode, :DayPhone, :Email, :CustomerRef, :Remarks, :Waiver, :DataProtection, :PriceCheckFlag, :PriceCheckPrice, :System, :lang, :SecondRoomType, :SecondRoomCode, :SecondRoomAdults, :SecondRoomChildren, :success, :active, :user_id)
         end
     end
   end

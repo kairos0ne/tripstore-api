@@ -287,7 +287,7 @@
             },
             {
               "paramType": "form",
-              "name": "destination[formatted_address",
+              "name": "destination[formatted_address]",
               "type": "string",
               "description": "Address",
               "required": false

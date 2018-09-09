@@ -82,7 +82,6 @@ module Api
         trip = Trip.find(params[:trip_id])
         @destination = Destination.new(destination_params)
         @destination.trip_id = trip.id
-
         if @destination.save
           render json: @destination, status: :created
         else
@@ -99,7 +98,7 @@ module Api
         param :path, :id, :integer, :required, "Destination Id"
         param :form, "destination[title]", :string, :required, "Todo Title"
         param :form, "destination[description]", :string, :optional, "Todo Description"
-        param :form, "destination[formatted_address", :string, :optional, "Address"
+        param :form, "destination[formatted_address]", :string, :optional, "Address"
         param :form, "destination[lat]", :decimal, :optional, "Latitude"
         param :form, "destination[lng]", :decimal, :optional, "Longitude"
         param :form, "destination[post_code]", :string, :optional, "Post Code"

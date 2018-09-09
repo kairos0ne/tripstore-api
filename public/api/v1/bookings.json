@@ -335,6 +335,20 @@
               "type": "integer",
               "description": "Second Room Children Number",
               "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[success]",
+              "type": "boolean",
+              "description": "Success Status",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[active]",
+              "type": "boolean",
+              "description": "Active Status",
+              "required": false
             }
           ],
           "responseMessages": [
@@ -553,7 +567,7 @@
             },
             {
               "paramType": "form",
-              "name": "booking[DayPhone",
+              "name": "booking[DayPhone]",
               "type": "integer",
               "description": "Day Phone",
               "required": false
@@ -595,7 +609,7 @@
             },
             {
               "paramType": "form",
-              "name": "booking[PriceCheckFlag",
+              "name": "booking[PriceCheckFlag]",
               "type": "string",
               "description": "Price Checked Flagged",
               "required": false
@@ -647,6 +661,20 @@
               "name": "booking[SecondRoomChildren]",
               "type": "integer",
               "description": "Second Room Children Number",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[success]",
+              "type": "boolean",
+              "description": "Success Status",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "booking[active]",
+              "type": "boolean",
+              "description": "Active Status",
               "required": false
             }
           ],

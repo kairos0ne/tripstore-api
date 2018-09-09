@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 2018_09_07_193106) do
     t.string "SecondRoomCode"
     t.integer "SecondRoomAdults"
     t.integer "SecondRoomChildren"
-    t.string "booking_type"
+    t.boolean "active", default: true
+    t.boolean "success", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
