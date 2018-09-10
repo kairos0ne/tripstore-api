@@ -55,11 +55,6 @@
               "code": 403,
               "responseModel": null,
               "message": "User does not have permissions"
-            },
-            {
-              "code": 422,
-              "responseModel": null,
-              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Api::V1::Trips#index",
@@ -197,14 +192,14 @@
               "message": "Unauthorized"
             },
             {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
-            },
-            {
-              "code": 422,
-              "responseModel": null,
-              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Api::V1::Trips#show",

@@ -45,14 +45,9 @@
               "message": "Unauthorized"
             },
             {
-              "code": 406,
+              "code": 403,
               "responseModel": null,
-              "message": "The request you made is not acceptable"
-            },
-            {
-              "code": 500,
-              "responseModel": null,
-              "message": "Requested Range Not Satisfiable"
+              "message": "Forbidden"
             }
           ],
           "nickname": "Api::V1::Users#index",
@@ -107,9 +102,9 @@
               "message": "Unauthorized"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Api::V1::Users#create",
@@ -150,14 +145,19 @@
               "message": "Unauthorized"
             },
             {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Api::V1::Users#show",
@@ -226,14 +226,19 @@
               "message": "Unauthorized"
             },
             {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
+            },
+            {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Api::V1::Users#update",
@@ -272,6 +277,11 @@
               "code": 401,
               "responseModel": null,
               "message": "Unauthorized"
+            },
+            {
+              "code": 403,
+              "responseModel": null,
+              "message": "Forbidden"
             },
             {
               "code": 404,

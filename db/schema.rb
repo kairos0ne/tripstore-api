@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2018_09_07_193106) do
     t.string "Initial"
     t.string "Surname"
     t.string "Email"
-    t.string "Waiver"
+    t.boolean "Waiver", default: false
     t.string "Remarks"
     t.string "ABTANumber"
     t.boolean "active", default: true

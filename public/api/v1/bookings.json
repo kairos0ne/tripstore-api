@@ -138,105 +138,105 @@
               "name": "booking[ABTANumber]",
               "type": "string",
               "description": "ABTNumber",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[token]",
               "type": "string",
               "description": "token",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[ArrivalDate]",
               "type": "date",
               "description": "Arrival Date",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Nights]",
               "type": "integer",
               "description": "Nights",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[RoomCode]",
               "type": "string",
               "description": "Room Code",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Adults]",
               "type": "integer",
               "description": "Adults Staying",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Children]",
               "type": "integer",
               "description": "Children Staying",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[ParkingDays]",
               "type": "integer",
               "description": "Parking Days",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Title]",
               "type": "string",
               "description": "Title",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Initial]",
               "type": "string",
               "description": "Initial",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Surname]",
               "type": "string",
               "description": "Surname",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Address]",
               "type": "string",
               "description": "Address",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Town]",
               "type": "string",
               "description": "Town",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[County]",
               "type": "string",
               "description": "County",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[PostCode]",
               "type": "string",
               "description": "Post Code",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
@@ -250,7 +250,7 @@
               "name": "booking[Email]",
               "type": "string",
               "description": "Email Address",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
@@ -269,7 +269,7 @@
             {
               "paramType": "form",
               "name": "booking[Waiver]",
-              "type": "string",
+              "type": "boolean",
               "description": "Customer Waiver",
               "required": false
             },
@@ -285,28 +285,28 @@
               "name": "booking[PriceCheckFlag]",
               "type": "string",
               "description": "Price Checked Flagged",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[PriceCheckPrice]",
               "type": "float",
               "description": "Price",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[System]",
               "type": "string",
               "description": "System",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[lang]",
               "type": "string",
               "description": "Language",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
@@ -465,105 +465,105 @@
               "name": "booking[ABTANumber]",
               "type": "string",
               "description": "ABTNumber",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[token]",
               "type": "string",
               "description": "token",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[ArrivalDate]",
               "type": "date",
               "description": "Arrival Date",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Nights]",
               "type": "integer",
               "description": "Nights",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[RoomCode]",
               "type": "string",
               "description": "Room Code",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Adults]",
               "type": "integer",
               "description": "Adults Staying",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Children]",
               "type": "integer",
               "description": "Children Staying",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[ParkingDays]",
               "type": "integer",
               "description": "Parking Days",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Title]",
               "type": "string",
               "description": "Title",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Initial]",
               "type": "string",
               "description": "Initial",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Surname]",
               "type": "string",
               "description": "Surname",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Address]",
               "type": "string",
               "description": "Address",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[Town]",
               "type": "string",
               "description": "Town",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[County]",
               "type": "string",
               "description": "County",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[PostCode]",
               "type": "string",
               "description": "Post Code",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
@@ -577,7 +577,7 @@
               "name": "booking[Email]",
               "type": "string",
               "description": "Email Address",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
@@ -596,7 +596,7 @@
             {
               "paramType": "form",
               "name": "booking[Waiver]",
-              "type": "string",
+              "type": "boolean",
               "description": "Customer Waiver",
               "required": false
             },
@@ -612,28 +612,28 @@
               "name": "booking[PriceCheckFlag]",
               "type": "string",
               "description": "Price Checked Flagged",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[PriceCheckPrice]",
               "type": "float",
               "description": "Price",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[System]",
               "type": "string",
               "description": "System",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",
               "name": "booking[lang]",
               "type": "string",
               "description": "Language",
-              "required": false
+              "required": true
             },
             {
               "paramType": "form",

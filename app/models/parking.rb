@@ -11,10 +11,10 @@ class Parking < ApplicationRecord
   belongs_to :user
 
   def formatted_arrival_time
-    self.ArrivalTime.strftime("%H:%M:%S")
+    self.ArrivalTime.strftime("%H:%M")
   end
 
   def formatted_departure_time
-    self.DepartTime.strftime("%H:%M:%S")
+    self.DepartTime.strftime("%H:%M")
   end
 end

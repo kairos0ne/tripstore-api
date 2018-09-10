@@ -64,7 +64,7 @@ module Api
         param :path, :trip_id, :integer, :required, "Trip Id"
         param :form, "destination[title]", :string, :required, "Todo Title"
         param :form, "destination[description]", :string, :optional, "Todo Description"
-        param :form, "destination[formatted_address", :string, :optional, "Address"
+        param :form, "destination[formatted_address]", :string, :optional, "Address"
         param :form, "destination[lat]", :decimal, :optional, "Latitude"
         param :form, "destination[lng]", :decimal, :optional, "Longitude"
         param :form, "destination[post_code]", :string, :optional, "Post Code"

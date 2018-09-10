@@ -10,7 +10,7 @@ class CreateParkings < ActiveRecord::Migration[5.2]
       t.string :Initial
       t.string :Surname
       t.string :Email
-      t.string :Waiver
+      t.boolean :Waiver, :default => false 
       t.string :Remarks
       t.string :ABTANumber
       t.boolean :active, :default => true
