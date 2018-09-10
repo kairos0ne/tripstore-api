@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # spec/controllers/api/v1/bookings_controller_spec.rb
-=======
-# spec/controllers/api/v1/booking_controller_spec.rb
->>>>>>> develop
 
 require 'rails_helper'
 
@@ -14,11 +10,7 @@ RSpec.describe Api::V1::BookingsController do
         request.headers["Authorization"] = "Token " + user.token  
     end
 
-<<<<<<< HEAD
   # Test if all bookings are returned on the index method 
-=======
-  # Test is all bookings are returned 
->>>>>>> develop
   describe "GET #index" do
 
     before do
@@ -38,11 +30,7 @@ RSpec.describe Api::V1::BookingsController do
 
   end
 
-<<<<<<< HEAD
   # Test that the booking is returned on the show method 
-=======
-  # Test that the booking is returned 
->>>>>>> develop
   describe "GET #show" do
 
     before do
@@ -63,11 +51,7 @@ RSpec.describe Api::V1::BookingsController do
 
   end
 
-<<<<<<< HEAD
   # Create a Booking in the db 
-=======
-  # Create a booking in the DB
->>>>>>> develop
   describe "Booking #create" do
 
     it 'creates a new Booking' do
@@ -79,11 +63,7 @@ RSpec.describe Api::V1::BookingsController do
     end
 
   end
-<<<<<<< HEAD
   # Delete a Booking 
-=======
-  # Delete a Booking
->>>>>>> develop
   describe "Booking #destroy" do
 
     it 'Deletes a Booking' do

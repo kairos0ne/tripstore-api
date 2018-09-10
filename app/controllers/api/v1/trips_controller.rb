@@ -16,7 +16,6 @@ module Api
       param :path, :user_id, :integer, :required, "User Id"
       response :ok
       response :unauthorized
-      response :unprocessable_entity
       response :forbidden, "User does not have permissions"
     end
 
@@ -66,7 +65,7 @@ module Api
       param :path, :id, :integer, :optional, "Trip Id"
       response :ok, "Success", :Trip
       response :unauthorized
-      response :unprocessable_entity
+      response :forbidden
       response :not_found
     end
 
