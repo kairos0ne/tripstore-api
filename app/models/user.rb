@@ -29,11 +29,10 @@ class User < ApplicationRecord
     where(token: token).where('token_created_at >= ?', period).first
   end
 
-  private
-
-  # This method is not available in has_secure_token
   def invalidate_token
     update_columns(token: nil)
     touch(:token_created_at)
   end
+
+  private
 end

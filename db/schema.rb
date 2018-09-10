@@ -101,12 +101,12 @@ ActiveRecord::Schema.define(version: 2018_09_07_193106) do
   end
 
   create_table "trips", id: :serial, force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.string "departure_airport_code"
     t.string "arrival_airport_code"
-    t.datetime "departure_time"
-    t.datetime "arrival_time"
+    t.time "departure_time"
+    t.time "arrival_time"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
