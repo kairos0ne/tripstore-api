@@ -28,6 +28,9 @@ Rails.application.routes.draw do
         post "/moderator" => "moderators#create"
         post   "/login"   => "sessions#create"
         delete "/logout"  => "sessions#destroy"
+        post '/forgot', to: 'passwords#forgot'
+        post '/reset', to: 'passwords#reset'
+        # put '/update', to: 'passwords#update'
       end
     end
   end
