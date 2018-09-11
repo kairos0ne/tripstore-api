@@ -86,7 +86,7 @@ module Api
           if @user.save
             # Send a welcome email 
             NotificationsMailer.welcome(@user).deliver
-            render json: @user, :except=>  [:password_digest, :token_created_at]
+            render json: @user, :except=>  [:password_digest, :token_created_at, :reset_password_token, :reset_password_sent_at]
           else
             render json: @user.errors, status: :unprocessable_entity
           end

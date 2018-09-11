@@ -38,7 +38,7 @@ module Api
       private
 
       def send_auth_token_for_valid_login_of(user)
-        render json: { user: user }, :except=>  [:password_digest, :token_created_at]
+        render json: { user: user }, :except=>  [:password_digest, :token_created_at, :reset_password_token, :reset_password_sent_at]
       end
 
       def allow_token_to_be_used_only_once_for(user)
