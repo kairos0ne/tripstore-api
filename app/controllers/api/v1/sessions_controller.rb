@@ -41,9 +41,7 @@ module Api
         render json: { user: user }, :except=>  [:password_digest, :token_created_at, :reset_password_token, :reset_password_sent_at]
       end
 
-      def allow_token_to_be_used_only_once_for(user)
-        user.regenerate_token
-      end
+ 
     
       def logout
         current_user.invalidate_token
