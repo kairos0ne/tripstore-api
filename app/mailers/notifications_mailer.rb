@@ -6,4 +6,10 @@ class NotificationsMailer < ApplicationMailer
         mail( :to => @user.email,
         :subject => 'Password Token' )
     end
+
+    def reset_confirmation(user)
+        @user = user
+        mail( :to => @user.email,
+        :subject => 'Confirm password reset!' )
+    end
 end
