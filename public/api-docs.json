@@ -62,6 +62,10 @@
     {
       "path": "/api/v1/sessions.{format}",
       "description": "Session Management"
+    },
+    {
+      "path": "/api/v1/passwords.{format}",
+      "description": "Password Management"
     }
   ],
   "authorizations": null,
