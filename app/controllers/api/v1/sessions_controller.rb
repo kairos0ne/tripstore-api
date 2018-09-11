@@ -31,8 +31,7 @@ module Api
 
 
       def destroy
-        current_user.token_created_at = nil
-        current_user.save
+        logout
         head :ok
       end
 
@@ -40,6 +39,14 @@ module Api
 
       def send_auth_token_for_valid_login_of(user)
         render json: { user: user }, :except=>  [:password_digest, :token_created_at]
+      end
+
+      def allow_token_to_be_used_only_once_for(user)
+        user.regenerate_token
+      end
+    
+      def logout
+        current_user.invalidate_token
       end
     end
   end 

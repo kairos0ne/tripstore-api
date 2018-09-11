@@ -1,6 +1,7 @@
 class CreateParkings < ActiveRecord::Migration[5.2]
   def change
     create_table :parkings do |t|
+      t.string :ABTANumber
       t.date :ArrivalDate
       t.time :ArrivalTime
       t.date :DepartDate
@@ -10,9 +11,10 @@ class CreateParkings < ActiveRecord::Migration[5.2]
       t.string :Initial
       t.string :Surname
       t.string :Email
-      t.string :Waiver
+      t.boolean :Waiver, :default => false 
       t.string :Remarks
-      t.string :ABTANumber
+      t.boolean :active, :default => true
+      t.boolean :success, :default => false 
       t.references :user, foreign_key: true
 
       t.timestamps

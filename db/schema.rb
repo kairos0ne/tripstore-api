@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_193106) do
+ActiveRecord::Schema.define(version: 2018_09_10_185022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 2018_09_07_193106) do
     t.string "SecondRoomCode"
     t.integer "SecondRoomAdults"
     t.integer "SecondRoomChildren"
-    t.string "booking_type"
+    t.boolean "active", default: true
+    t.boolean "success", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,9 +80,11 @@ ActiveRecord::Schema.define(version: 2018_09_07_193106) do
     t.string "Initial"
     t.string "Surname"
     t.string "Email"
-    t.string "Waiver"
+    t.boolean "Waiver", default: false
     t.string "Remarks"
     t.string "ABTANumber"
+    t.boolean "active", default: true
+    t.boolean "success", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -98,12 +101,12 @@ ActiveRecord::Schema.define(version: 2018_09_07_193106) do
   end
 
   create_table "trips", id: :serial, force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.string "departure_airport_code"
     t.string "arrival_airport_code"
-    t.datetime "departure_time"
-    t.datetime "arrival_time"
+    t.time "departure_time"
+    t.time "arrival_time"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,6 +123,8 @@ ActiveRecord::Schema.define(version: 2018_09_07_193106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "token_created_at"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.index ["token", "token_created_at"], name: "index_users_on_token_and_token_created_at"
   end
 

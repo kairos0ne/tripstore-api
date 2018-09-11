@@ -29,11 +29,31 @@ class User < ApplicationRecord
     where(token: token).where('token_created_at >= ?', period).first
   end
 
-  private
-
-  # This method is not available in has_secure_token
   def invalidate_token
     update_columns(token: nil)
     touch(:token_created_at)
   end
+
+  def generate_password_token!
+    self.reset_password_token = generate_token
+    self.reset_password_sent_at = Time.now.utc
+    save!
+  end
+  
+  def password_token_valid?
+    (self.reset_password_sent_at + 4.hours) > Time.now.utc
+  end
+  
+  def reset_password!(password)
+    self.reset_password_token = nil
+    self.password = password
+    save!
+  end
+
+  private
+
+  def generate_token
+    SecureRandom.hex(10)
+  end
+  
 end

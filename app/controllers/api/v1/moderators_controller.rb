@@ -17,7 +17,7 @@ module Api
           param :form, "user[password]", :string, :required, "User Password"
           param :form, "user[password_confirmation]", :string, :required, "Password Confirmation"
           param :form, "user[admin]", :boolean, :required, "Admin Role (default false)"
-          param :form, "user[member]", :beelean, :required, "Member Role (default true)"
+          param :form, "user[member]", :boolean, :required, "Member Role (default true)"
           response :ok
           response :unauthorized
           response :unprocessable_entity

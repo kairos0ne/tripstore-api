@@ -56,7 +56,7 @@
             {
               "paramType": "form",
               "name": "user[member]",
-              "type": "beelean",
+              "type": "boolean",
               "description": "Member Role (default true)",
               "required": true
             }

@@ -18,7 +18,8 @@ module Api
           param :path, :id, :integer, :optional, "User Id"
           response :ok, "Success", :User
           response :unauthorized
-          response :not_acceptable
+          response :unprocessable_entity
+          response :forbidden
           response :not_found
         end
         
@@ -43,8 +44,7 @@ module Api
           param :query, :per_page, :integer, :optional, "Per page option"
           response :ok
           response :unauthorized
-          response :not_acceptable, "The request you made is not acceptable"
-          response :requested_range_not_satisfiable
+          response :forbidden
         end
       
 
@@ -77,7 +77,7 @@ module Api
           param :form, "user[password_confirmation]", :string, :required, "Password Confirmation"
           response :created
           response :unauthorized
-          response :not_acceptable
+          response :unprocessable_entity
         end
       
         def create
@@ -102,7 +102,8 @@ module Api
           response :ok
           response :unauthorized
           response :not_found
-          response :not_acceptable
+          response :unprocessable_entity
+          response :forbidden
         end
 
         # PATCH/PUT /users/1
@@ -123,6 +124,7 @@ module Api
           param :path, :id, :integer, :optional, "User Id"
           response :ok
           response :unauthorized
+          response :forbidden
           response :not_found
         end
 

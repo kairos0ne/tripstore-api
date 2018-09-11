@@ -9,9 +9,12 @@ FactoryBot.define do
       Title  { "MyString" }
       Initial { "MyString" }
       Surname { "MyString" }
-      Email { "MyString" }
-      Waiver { "MyString" }
+      Email { Faker::Internet.email }
+      Waiver { false } 
       Remarks { "MyString" }
+      ABTANumber { "MyString"}
+      active { true }
+      success { true }
     end
     
     
@@ -35,7 +38,7 @@ FactoryBot.define do
       Email { Faker::Internet.email }
       CustomerRef {"MyString"}
       Remarks {"MyText"}
-      Waiver { false }
+      Waiver { false } 
       DataProtection {"MyString"}
       PriceCheckFlag {"MyString"}
       PriceCheckPrice  { 1.5 }
