@@ -51,6 +51,7 @@ module Api
           
               if user.present? && user.password_token_valid?
                 if user.reset_password!(params[:password])
+                  NotificationsMailer.reset_confirmation(user).deliver
                   render json: {status: 'ok'}, status: :ok
                 else
                   render json: {error: user.errors.full_messages}, status: :unprocessable_entity
