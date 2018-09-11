@@ -12,10 +12,7 @@ module Api
             
                 if user.present? 
                   user.generate_password_token!
-                  # SEND EMAIL HERE
-                  # Deliver the signup email
                   NotificationsMailer.password_reset(user).deliver
-
                   render json: {status: 'ok'}, status: :ok
                 else
                   render json: {error: ['Email address not found. Please check and try again.']}, status: :not_found
