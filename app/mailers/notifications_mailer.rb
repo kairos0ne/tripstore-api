@@ -4,12 +4,18 @@ class NotificationsMailer < ApplicationMailer
     def password_reset(user)
         @user = user
         mail( :to => @user.email,
-        :subject => 'Password Token' )
+        :subject => 'Password reset token.' )
     end
 
     def reset_confirmation(user)
         @user = user
         mail( :to => @user.email,
         :subject => 'Confirm password reset!' )
+    end
+
+    def welcome(user)
+        @user = user
+        mail( :to => @user.email,
+        :subject => 'Welcome to Tripstore.' )
     end
 end

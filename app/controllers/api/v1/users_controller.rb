@@ -82,8 +82,10 @@ module Api
       
         def create
           @user = User.new(user_params)
+      
           if @user.save
-            
+            # Send a welcome email 
+            NotificationsMailer.welcome(@user).deliver
             render json: @user, :except=>  [:password_digest, :token_created_at]
           else
             render json: @user.errors, status: :unprocessable_entity
