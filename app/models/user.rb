@@ -2,6 +2,10 @@ class User < ApplicationRecord
   has_secure_password
   has_secure_token
 
+  secret_key = ENV['ENCRYPTION_KEY']
+  attr_encrypted :email, :key => secret_key
+  attr_encrypted :name, :key => secret_key
+
   validates :email,  :presence => true
   validates :email, :uniqueness => true
 

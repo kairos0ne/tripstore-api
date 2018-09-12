@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_09_10_185022) do
   end
 
   create_table "parkings", force: :cascade do |t|
+    t.string "ABTANumber"
     t.date "ArrivalDate"
     t.time "ArrivalTime"
     t.date "DepartDate"
@@ -82,7 +83,6 @@ ActiveRecord::Schema.define(version: 2018_09_10_185022) do
     t.string "Email"
     t.boolean "Waiver", default: false
     t.string "Remarks"
-    t.string "ABTANumber"
     t.boolean "active", default: true
     t.boolean "success", default: false
     t.bigint "user_id"
@@ -114,9 +114,11 @@ ActiveRecord::Schema.define(version: 2018_09_10_185022) do
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
-    t.string "name"
+    t.string "encrypted_name"
+    t.string "encrypted_name_iv"
     t.string "token"
-    t.string "email"
+    t.string "encrypted_email"
+    t.string "encrypted_email_iv"
     t.boolean "admin", default: false
     t.boolean "member", default: true
     t.string "password_digest"
