@@ -1,12 +1,13 @@
 # This will guess the User class
 FactoryBot.define do
-  factory :credential do
-    password "MyString"
-    key "MyString"
-    account_number "MyString"
-    initials "MyString"
-    name "MyString"
-  end
+    factory :credential do
+      password { "MyString" }
+      key { "MyString" }
+      account_number { "MyString" }
+      initials { "MyString" }
+      name { "MyString" }
+    end
+
     factory :parking, class: Parking do
       ArrivalDate { "2018-09-07" } 
       ArrivalTime { "20:31:06" }
