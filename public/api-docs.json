@@ -4,6 +4,10 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
+      "path": "/api/v1/credentials.{format}",
+      "description": "Credentials Management"
+    },
+    {
       "path": "/api/v1/bookings.{format}",
       "description": "Booking Management"
     },

@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Fetches all the destinations for a given trip",
-          "notes": "This lists all the destinations for a trip. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips/1/destinations",
           "parameters": [
             {
               "paramType": "header",
@@ -50,6 +49,7 @@
               "message": "User does not have permissions"
             }
           ],
+          "notes": "This lists all the destinations for a trip. Admins have access to all user data. Members have access to own data. eg http://localhost:3000/api/v1/users/1/trips/1/destinations",
           "nickname": "Api::V1::Destinations#index",
           "method": "get"
         }

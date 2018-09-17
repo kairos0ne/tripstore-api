@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Fetches all bookings for a given user",
-          "notes": "This lists all the bookings for a user",
           "parameters": [
             {
               "paramType": "header",
@@ -50,6 +49,7 @@
               "message": "User does not have permissions"
             }
           ],
+          "notes": "This lists all the bookings for a user",
           "nickname": "Api::V1::Bookings#all_bookings",
           "method": "get"
         }
@@ -60,7 +60,6 @@
       "operations": [
         {
           "summary": "Fetches all bookings for a given user",
-          "notes": "This lists all the bookings for a user",
           "parameters": [
             {
               "paramType": "header",
@@ -108,6 +107,7 @@
               "message": "User does not have permissions"
             }
           ],
+          "notes": "This lists all the bookings for a user",
           "nickname": "Api::V1::Bookings#index",
           "method": "get"
         }

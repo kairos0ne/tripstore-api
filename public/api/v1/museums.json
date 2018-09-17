@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Fetches all Museums for a given Destination. Uses Google Places Api",
-          "notes": "This lists all the museums that are nearby the destination",
           "parameters": [
             {
               "paramType": "header",
@@ -57,6 +56,7 @@
               "message": "User does not have permissions"
             }
           ],
+          "notes": "This lists all the museums that are nearby the destination",
           "nickname": "Api::V1::Museums#index",
           "method": "get"
         }

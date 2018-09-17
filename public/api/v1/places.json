@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Fetches all Places for a given Latitude and longitude. Uses Google Places Api",
-          "notes": "This lists all the places that are nearby the destination",
           "parameters": [
             {
               "paramType": "header",
@@ -71,6 +70,7 @@
               "message": "User does not have permissions"
             }
           ],
+          "notes": "This lists all the places that are nearby the destination",
           "nickname": "Api::V1::Places#index",
           "method": "get"
         }
