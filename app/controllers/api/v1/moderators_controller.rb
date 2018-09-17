@@ -11,7 +11,6 @@ module Api
           summary "Creates a Admin user"
           notes "Only admins have access to this endpoint"
           param :header, :Authorization, :string, :required, "To authorize the requests."
-          
           param :form, "user[name]", :string, :optional, "User Name"
           param :form, "user[email]", :string, :required, "User Email"
           param :form, "user[password]", :string, :required, "User Password"

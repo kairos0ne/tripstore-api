@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_10_185022) do
+ActiveRecord::Schema.define(version: 2018_09_17_144154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2018_09_10_185022) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "credentials", force: :cascade do |t|
+    t.string "password"
+    t.string "key"
+    t.string "account_number"
+    t.string "initials"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "destinations", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -71,6 +81,7 @@ ActiveRecord::Schema.define(version: 2018_09_10_185022) do
   end
 
   create_table "parkings", force: :cascade do |t|
+    t.string "ABTANumber"
     t.date "ArrivalDate"
     t.time "ArrivalTime"
     t.date "DepartDate"
@@ -82,7 +93,6 @@ ActiveRecord::Schema.define(version: 2018_09_10_185022) do
     t.string "Email"
     t.boolean "Waiver", default: false
     t.string "Remarks"
-    t.string "ABTANumber"
     t.boolean "active", default: true
     t.boolean "success", default: false
     t.bigint "user_id"

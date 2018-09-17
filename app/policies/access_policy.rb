@@ -10,6 +10,7 @@ class AccessPolicy
       can [:read, :create, :update, :destroy], Todo
       can [:read, :create, :update, :destroy], Destination
       can [:read, :create, :update, :destroy], Booking
+      can [:read, :create, :update, :destroy], Credential
 
     end
 
