@@ -2,6 +2,8 @@ module Api
   module V1
     class ApiController < ActionController::Base
       include Rails::Pagination
+      include HTTParty
+      include URI
 
       def require_login
         authenticate_token || render_unauthorized("Access denied")

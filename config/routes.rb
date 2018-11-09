@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       
       scope do
         post "/moderator" => "moderators#create"
+        get "/availability" => "availability#index"
+        post "/reservation" => "payment#create"
         post   "/login"   => "sessions#create"
         delete "/logout"  => "sessions#destroy"
         post '/forgot', to: 'passwords#forgot'
