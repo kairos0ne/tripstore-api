@@ -3,20 +3,6 @@ module Api
     module V1  
         class PaymentController < ApiController
             before_action :require_login
-            
-            swagger_controller :payment, "Payment Management"
-    
-            swagger_api :create do
-                summary "Posts booking once payment is recieved"
-                notes "Posts a booking to HX when paymemt is confirmed"
-                param :path, :location_code, :string, :required, "Location Code"
-                param :path, :arrival_date, :date, :required, "Arrival Date"
-                param :path, :nights, :integer, :required, "Nights"
-                param :path, :room_type, :string, :required, "Room Type Code"
-                param :path, :language_code, :string, :required, "Language Code"
-                param :path, :type, :string, :required, "Type should be hotel"
-                response :ok
-            end
 
             # GET /availabilitys
             def create
@@ -59,8 +45,6 @@ module Api
                     response = HTTParty.post(url)  
                     @booking = response.body
                     
-                    puts url
-                    
                     render json: @booking
                 
                 else
@@ -101,8 +85,6 @@ module Api
                     url = "#{base}#{type}/#{location}/lite.js?ABTANumber=#{abtanumber}&Password=#{password}&Initials=#{initials}&token=#{token}&key=#{key}&ArrivalDate=#{arrival_date}&Nights=#{nights}&RoomCode=#{roomcode}&lang=#{lang}&Adults=#{adults}&Children=#{children}&ParkingDays=#{parking_days}&Title=#{title}&Initial=#{initial}&Surname=#{surname}&Address=#{address}&Town=#{town}&County=#{county}&PostCode=#{post_code}&DayPhone=#{dayphone}&Email=#{email}&CustomerRef=#{customer_ref}&Remarks=#{remarks}&Waiver=#{waiver}&DataProtection=#{data_protection}&PriceCheckFlag=#{check_price_flag}&PriceCheckPrice=#{price}&System=#{platform}"
                     response = HTTParty.post(url)  
                     @booking = response.body
-                    
-                    puts url
                     
                     render json: @booking
                 end

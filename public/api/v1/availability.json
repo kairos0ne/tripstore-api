@@ -1,0 +1,30 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "availability",
+  "apis": [
+    {
+      "path": "/api/v1/availability",
+      "operations": [
+        {
+          "summary": "Fetches all available hotels for a given user",
+          "parameters": [
+
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            }
+          ],
+          "notes": "Gets all hotels for a given location",
+          "nickname": "Api::V1::Availability#index",
+          "method": "get"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

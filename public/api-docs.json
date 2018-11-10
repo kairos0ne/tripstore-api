@@ -64,6 +64,14 @@
       "description": "Moderators Management"
     },
     {
+      "path": "/api/v1/availability.{format}",
+      "description": "Availability Management"
+    },
+    {
+      "path": "/api/v1/payment.{format}",
+      "description": "Payment Management"
+    },
+    {
       "path": "/api/v1/sessions.{format}",
       "description": "Session Management"
     },

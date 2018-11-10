@@ -1,0 +1,30 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "payment",
+  "apis": [
+    {
+      "path": "/api/v1/reservation",
+      "operations": [
+        {
+          "summary": "Posts booking once payment is recieved",
+          "parameters": [
+
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            }
+          ],
+          "notes": "Posts a booking to HX when paymemt is confirmed",
+          "nickname": "Api::V1::Payment#create",
+          "method": "post"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}
