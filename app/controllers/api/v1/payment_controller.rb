@@ -4,7 +4,7 @@ module Api
         class PaymentController < ApiController
             before_action :require_login
 
-            # GET /availabilitys
+            # GET /reservation
             def create
                 if params[:live]
                     # Base URL for requests 

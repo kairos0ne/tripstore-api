@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         post "/moderator" => "moderators#create"
         get "/availability" => "availability#index"
         post "/reservation" => "payment#create"
+        get "/confirmation" => "confirmation#index"
         post   "/login"   => "sessions#create"
         delete "/logout"  => "sessions#destroy"
         post '/forgot', to: 'passwords#forgot'
